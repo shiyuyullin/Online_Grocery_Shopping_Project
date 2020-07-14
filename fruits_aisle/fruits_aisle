@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>FRUITS & VEGETABLES | Our store</title>
+<link rel="stylesheet" type="text/css" href="aisle_style.css">
+</head>
+<body>
+
+  <div class="header">
+    <h1 class="white">YUMMY FOODS</h1>
+    <div class="searchBar">
+      <form action="">
+        <input type="text" placeholder="Search..">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+  
+  <div class="topnav">
+    <a href="#" class="bold">ALL PRODUCTS</a>
+    <a href="#" class="bold">FLYER</a>
+    <a href="#" class="bold">DEAL OF TODAY</a>
+    <a href="#" class="bold">RECOMMANDED COMBO</a>
+  </div>
+
+ <div class="row">
+   <h1 class="message">FRUITS & VEGETABLES</h1>
+ </div> 
+<div class="botnav">
+	<a href="#" class="number round" >First Page</a>
+	<a href="#" class="round">Previous Page</a>
+	<a href="#" class="number round">1</a>
+	<a href="#" class="number round">2</a>
+	<a href="#" class="number round">3</a>
+	<a href="#" class="number round">...</a>
+	<a href="#" class="number round">13</a>
+	<a href="#" class="number round">14</a>
+	<a href="#" class="number round">15</a>
+	<a href="#" class="round">Next Page</a>
+	<a href="#" class="number round">Last Page</a>
+	</div>
+
+ <div class="row">
+   <div class="column">
+     <div class="card">
+      <a href="f01_desc.html"><img src="../image/banana.jpg" alt="Banana" style="width:100%"></a>
+      <h1>Banana</h1>
+      <p class="price">$0.33 avg. ea.</p>
+      <p><button>Add to Cart</button></p>
+     </div>
+   </div>
+   <div class="column">
+     <div class="card">
+      <a href="f02_desc.html"><img src="../image/englishcucumber.jpg" alt="English Cucumber" style="width: 85%"></a>
+      <h1>English Cucumber </h1>
+      <p class="price">$2.49 avg. ea.</p>
+      <p><button>Add to Cart</button></p>
+     </div>
+   </div>
+   <div class="column">
+    <div class="card">
+      <a href="f03_desc.html"><img src="../image/raspberries.jpg" alt="Raspberries" style="width:100%"></a>
+     <h1>Raspberries</h1>
+     <p class="price">$4.49 avg. ea.</p>
+     <p><button>Add to Cart</button></p>
+    </div>
+  </div>
+  <div class="column">
+    <div class="card">
+      <a href="f04_desc.html"><img src="../image/whitemuch.jpg" alt="White Mushrooms" style="width:85%"></a>
+     <h1>White Mushrooms</h1>
+     <p class="price">$2.49 avg. ea.</p>
+     <p><button>Add to Cart</button></p>
+    </div>
+  </div>
+ </div>
+
+<hr/>
+
+ <div class="row">
+  <div class="column">
+    <div class="card">
+      <a href="f05_desc.html"><img src="../image/redpepper.jpg" alt="Hothouse Red Pepper" style="width:85%"></a>
+     <h1>Hothouse Red Pepper</h1>
+     <p class="price">$3.96 avg. ea.</p>
+     <p><button>Add to Cart</button></p>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <a href="f06_desc.html"><img src="../image/orbanana.jpg" alt="Organic Banana" style="width:100%"></a>
+     <h1>Organic Banana</h1>
+     <p class="price">$0.58 avg. ea.</p>
+     <p><button>Add to Cart</button></p>
+    </div>
+  </div>
+  <div class="column">
+   <div class="card">
+    <a href="f07_desc.html"><img src="../image/sweetpotato.jpg" alt="Sweet Potato" style="width:100%"></a>
+    <h1>Sweet Potato</h1>
+    <p class="price">$3.69 avg. ea.</p>
+    <p><button>Add to Cart</button></p>
+   </div>
+ </div>
+ <div class="column">
+   <div class="card">
+    <a href="f08_desc.html"><img src="../image/lime.jpg" alt="Limes" style="width:100%"></a>
+    <h1>Limes</h1>
+    <p class="price">$2.99 ea.</p>
+    <p><button>Add to Cart</button></p>
+   </div>
+ </div>
+</div>
+
+<hr/>
+
+ <div class="row">
+  <div class="column">
+    <div class="card">
+      <a href="f09_desc.html"><img src="../image/minicucumber.jpg" alt="Seedless Mini Cucumbers" style="width:85%"></a>
+     <h1>Seedless Mini Cucumbers</h1>
+     <p class="price">$3.69 avg. ea.</p>
+     <p><button>Add to Cart</button></p>
+    </div>
+  </div>
+  <div class="column">
+    <div class="card">
+      <a href="f10_desc.html"><img src="../image/tomato.jpg" alt="Beefsteak Tomato" style="width:85%"></a>
+     <h1>Beefsteak Tomato</h1>
+     <p class="price">$1.65 avg. ea.</p>
+     <p><button>Add to Cart</button></p>
+    </div>
+  </div>
+  <div class="column">
+   <div class="card">
+    <a href="f11_desc.html"><img src="../image/apple.jpg" alt="Apple" style="width:100%"></a>
+    <h1>Apple</h1>
+    <p class="price">$0.91 avg. ea.</p>
+    <p><button>Add to Cart</button></p>
+   </div>
+ </div>
+ <div class="column">
+   <div class="card">
+    <a href="f12_desc.html"><img src="../image/dragonfruit.jpg" alt="Dragon Fruit" style="width:100%"></a>
+    <h1>Dragon Fruit</h1>
+    <p class="price">$3.00 ea.</p>
+    <p><button>Add to Cart</button></p>
+   </div>
+ </div>
+</div>
+
+<div class="botnav">
+	<a href="#" class="number round" >First Page</a>
+	<a href="#" class="round">Previous Page</a>
+	<a href="#" class="number round">1</a>
+	<a href="#" class="number round">2</a>
+	<a href="#" class="number round">3</a>
+	<a href="#" class="number round">...</a>
+	<a href="#" class="number round">13</a>
+	<a href="#" class="number round">14</a>
+	<a href="#" class="number round">15</a>
+	<a href="#" class="round">Next Page</a>
+	<a href="#" class="number round">Last Page</a>
+	</div> 
+
+  
+  
+  <div class="footer">
+    <div class="generalinf">
+      <p><a href="#">FIND</a> &emsp;&emsp;&emsp;&emsp;&emsp;  <a href="#">FIND LOCATION</a> &emsp;&emsp;&emsp;&emsp;&emsp; <a href="#">HELP CENTER</a> </p>
+
+    </div>
+    <div class="fontF">
+      <p>Product &emsp;&emsp;&emsp;&emsp;&emsp; Support & Resources  &emsp;&emsp;&emsp;&emsp;&emsp; Partnerships</p>
+    </div>
+  </div>
+  
+  </body>
+  </html>

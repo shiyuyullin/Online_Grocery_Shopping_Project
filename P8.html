@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Product Description | Our Store</title>
+        <link rel="stylesheet" type="text/css" href="aisle_style.css">
+        <link rel="stylesheet" type="text/css" href="product_description.css">
+        </script>
+    </head>
+<body>
+
+  <div class="header">
+    <h1 class="white">Yummy Foods</h1>
+    <div class="searchBar">
+      <form action="">
+        <input type="text" placeholder="Search..">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+  
+  <div class="topnav">
+    <a href="#" class="bold">ALL PRODUCTS</a>
+    <a href="#" class="bold">FLYER</a>
+    <a href="#" class="bold">DEAL OF TODAY</a>
+    <a href="#" class="bold">RECOMMANDED COMBO</a>
+  </div>
+
+  
+  <h1>Add Product</h1>
+
+  <form action="/action_page.php">
+    <label for="Title">Title:</label><br>
+    <input type="Title" id="Title" name="Title"size="50"value="Frozen Chicken Pot Pie, St-Hubert"> <br><br>
+
+
+    <form action="/action_page.php">
+        <label for="Price">Price</label><br>
+        <input type="Price" id="Price" name="Price"size="50"value="$7.99 ea." ><br><br>
+
+
+
+    <form action="/action_page.php">
+        <label for="Description">Description</label><br>
+        <textarea id="Description" name="Description"  rows="4" cols="50">This Chicken Pot Pie will have your mouth watering for more!
+        </textarea><br><br>
+       
+
+
+    <form action="/action_page.php">
+        <label for="Product Number">Product Number:</label><br>
+        <input type="Title" id="Title" name="Title"size="50"value="001-999-303" ><br><br>
+
+
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+
+
+
+    <p style="margin:75px"></p>
+    <div class="footer">
+        <div class="generalinf">
+            <p><a href="#">FIND</a> &emsp;&emsp;&emsp;&emsp;&emsp; <a href="#">FIND LOCATION</a>
+                &emsp;&emsp;&emsp;&emsp;&emsp; <a href="#">HELP CENTER</a> </p>
+
+        </div>
+        <div class="fontF">
+            <p>Product &emsp;&emsp;&emsp;&emsp;&emsp; Support & Resources &emsp;&emsp;&emsp;&emsp;&emsp; Partnerships
+            </p>
+        </div>
+    </div>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
+
+
+
+
+</body>
+</html>

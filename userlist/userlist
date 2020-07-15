@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>User List</title>
+        <link rel="stylesheet" type="text/css" href="../css/backstore_product_list.css">
+    </head>
+
+    <body>
+        <div class="header">
+            <h1>User List</h1>
+            <hr/>
+
+        </div> 
+         <a href="adduser.html"><button type="button">Add User</button></a>
+        <table style="width:100%" class="orderTable">
+            <tr>
+              <th class="bigfonts">Name</th>
+              <th class="bigfonts hidden">Occupation</th> 
+              <th class="bigfonts ">E-mail</th>
+			  <th class="bigfonts hidden">ID</th>
+              <th class="bigfonts hidden">Created Date</th>
+              <th class="bigfonts">Action</th>
+            </tr>
+            <!-- order -->
+            <tr>
+                <td class="big-margin">Shiyu Lin</td>
+                <td class="big-margin hidden">Admin</td>
+                <td class="big-margin">shiyulin@gmail.com</td>
+                <td class="big-margin hidden">505-0001</td>
+                <td class="big-margin hidden">2020-07-05</td>
+                <td class="big-margin">
+                    <button type="button">delete</button>
+                    <a href="user1.html"><button type="button">edit</button></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="big-margin">Xavier Knoll</td>
+                <td class="big-margin hidden">Admin</td>
+                <td class="big-margin">xavier.knoll@hotmail.com</td>
+                <td class="big-margin hidden">505-0002</td>
+                <td class="big-margin hidden">2020-07-05</td>
+                <td class="big-margin">
+                    <button type="button">delete</button>
+                    <a href="user2.html"><button type="button">edit</button></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="big-margin">Jennifer Aniston</td>
+                <td class="big-margin hidden">Staff</td>
+                <td class="big-margin">jenni_1995@hotmail.com</td>
+                <td class="big-margin hidden">399-0001</td>
+                <td class="big-margin hidden">2020-07-05</td>
+                <td class="big-margin">
+                    <button type="button">delete</button>
+                    <a href="user3.html"><button type="button">edit</button></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="big-margin">Elon Musk</td>
+                <td class="big-margin hidden">Staff</td>
+                <td class="big-margin">xaea-12@yahoo.com</td>
+                <td class="big-margin hidden">399-0002</td>
+                <td class="big-margin hidden">2020-07-05</td>
+                <td class="big-margin">
+                    <button type="button">delete</button>
+                    <a href="user4.html"><button type="button">edit</button></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="big-margin">Justin Trudeau</td>
+                <td class="big-margin hidden">Client</td>
+                <td class="big-margin">xXpoutineloverXx@hotmail.com</td>
+                <td class="big-margin hidden">111-0001</td>
+                <td class="big-margin hidden">2020-07-05</td>
+                <td class="big-margin">
+                    <button type="button">delete</button>
+                    <a href="user5.html"><button type="button">edit</button></a>
+                </td>
+            </tr>
+          </table>
+       
+        <hr style="margin-top: 80px;">  
+
+        <div class="footer">
+            <h4>Links: </h4>
+            <a href="#">Product List</a><p>&emsp;</p>
+            <a href="#">User List</a><p>&emsp;</p>
+            <a href="../orderList/orderList.html">Order List</a>
+        </div>
+    </body>
+
+</html>

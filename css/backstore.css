@@ -15,6 +15,11 @@
 .orderTable{
   margin-top: 60px;
 }
+.fonts{
+  font-weight:bold;
+  font-size: 12pt;
+  padding-top: 30px;
+}
 
 table.lined{
   border: 1px solid black;

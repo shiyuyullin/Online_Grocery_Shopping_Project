@@ -6,6 +6,12 @@
     color: black;
   }
 
+.footer {
+    padding: 20px;
+    background: white;
+    margin-top: 20px;
+  }
+
 .orderTable{
   margin-top: 60px;
 }

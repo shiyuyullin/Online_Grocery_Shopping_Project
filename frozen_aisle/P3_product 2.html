@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Product Description | Our Store</title>
+        <link rel="stylesheet" type="text/css" href="aisle_style.css">
+        <link rel="stylesheet" type="text/css" href="product_description.css">
+        </script>
+    </head>
+<body>
+
+  <div class="header">
+    <h1 class="white">Yummy Foods</h1>
+    <div class="searchBar">
+      <form action="">
+        <input type="text" placeholder="Search..">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+  
+  <div class="topnav">
+    <a href="#" class="bold">ALL PRODUCTS</a>
+    <a href="#" class="bold">FLYER</a>
+    <a href="#" class="bold">DEAL OF TODAY</a>
+    <a href="#" class="bold">RECOMMANDED COMBO</a>
+  </div>
+
+  <div class="row">
+    <h1 class="message">Product Description</h1>
+        </div>
+    <div style="color:white">
+        <h3 style="color:black">Please find a description below
+            <p style="margin: 25px;"></p>
+        </h3>
+    </div>
+    <div class="bodyBackground description">
+        <div class="row">
+            <div class="col-5">
+                <div style="float:right"><img src="../image/Frozen 5 Minutes Shoestring Fries, McCain.jpg" alt="5 Minutes Fries" style="margin-right: 100px;"></div>
+            </div>
+            <div class="col-7">
+                <h3> Frozen 5 Minutes Shoestring Fries, McCain
+                    <p style="margin: 10px;"></p>
+                </h3>
+                <h3 style="font-weight:normal">$3.49 ea.</h3>
+                <div>Quantity:
+                    <input type="number" style="max-width: 40px;" value="0">
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <button class="button" type="reset">Add To Cart</button>
+                    </div>
+                </div>
+                <hr>
+                <button class="accordion">More Description</button>
+                <div class="panel">
+                    <h3>Product Description:</h3>
+                    <h3 style="font-weight:normal">Fastest and easiest way to make tasty French Fries.</h3>
+                    <hr>
+                    <h3>Product Number:</h3>
+                    <h3 style="font-weight:normal">001-999-302</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p style="margin:75px"></p>
+    <div class="footer">
+        <div class="generalinf">
+            <p><a href="#">FIND</a> &emsp;&emsp;&emsp;&emsp;&emsp; <a href="#">FIND LOCATION</a>
+                &emsp;&emsp;&emsp;&emsp;&emsp; <a href="#">HELP CENTER</a> </p>
+
+        </div>
+        <div class="fontF">
+            <p>Product &emsp;&emsp;&emsp;&emsp;&emsp; Support & Resources &emsp;&emsp;&emsp;&emsp;&emsp; Partnerships
+            </p>
+        </div>
+    </div>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
+
+
+
+
+</body>
+</html>

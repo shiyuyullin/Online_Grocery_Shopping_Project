@@ -1,0 +1,88 @@
+.header {
+  padding: 10px;
+    text-align: left;
+    color: black;
+  }
+
+.orderTable{
+  margin-top: 40px;
+}
+
+table{
+  margin: 0px;
+  border-spacing: 0px;
+  border-collapse:collapse;
+}
+td {
+  border: solid 2px black;
+  margin: 0px;
+}
+.hidden{
+}
+tr.left{
+  text-align: left;
+}
+
+th.bigfonts{
+  font-size: 14pt;
+  padding-top: 30px;
+}
+
+td.bigfont{
+  font-size: 14pt;
+  padding-left: 10px;
+  padding-top: 30px;
+}
+
+td.big-margin {
+  padding: 10px;
+  text-align: center;
+}
+
+.column{
+  float: left;
+  width: 100%;
+  margin-top: 50px;
+  margin-left: 30px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+button.save{
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #008CBA;
+    float: right;
+    margin-right: 60px;
+}
+
+img {
+  width: 100%;
+  object-fit: contain;
+  max-height: 120px;
+  
+}
+
+.footer {
+    padding: 20px;
+    background: white;
+    margin-top: 20px;
+  }
+  
+  @media screen and (max-width:600px) {
+   th.hidden{
+      display:none;
+}
+   td.hidden{
+      display:none;
+}

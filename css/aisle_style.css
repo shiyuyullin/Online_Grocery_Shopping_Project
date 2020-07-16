@@ -66,10 +66,7 @@ body {
   background-color: #ddd;
   color: black;
 }
-.round {
-  border-radius: 50%;
-  background-color: black;
-}
+
 .botnav {
   overflow: hidden ;
   background-color: white;
@@ -90,7 +87,29 @@ body {
   color: white;
 }
 
-.number{}
+.botnav2 {
+  overflow: hidden ;
+  background-color: white;
+  padding-left: 80px;
+}
+.botnav2 a {
+  float:left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  margin-left: 60px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-decoration: none;
+}
+
+.botnav2 a:hover {
+  background-color: grey;
+  color: white;
+}
+
+
 /* Style the search box inside the navigation bar */
 .searchBar{
   float: right;
@@ -148,7 +167,7 @@ body {
   margin-top: 20px;
   text-align: center;
   font-family: arial;
-  margin-left: 80px;
+  margin-left: 50px;
 }
 
 .price {
@@ -174,16 +193,14 @@ body {
 
 hr{
   margin-top: 60px;
-
 }
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media screen and (max-width:600px) {
-  a.number{
-      display:none;
-}
+@media screen and (max-width:768px) {
   .column {
     width: 100%;
   }
-  
+  a.number{
+    display:none;
+  }
 }

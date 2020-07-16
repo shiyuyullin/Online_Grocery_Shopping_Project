@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   
+    <link rel="stylesheet" type="text/css" href="../css/HomeAndSignin.css">
+
+    <title>Yummy Food|Home</title>
+</head>
+<body >
+    
+<!-- the cart icon is taken  from https://icons8.com/-->
+<header >
+ 
+  <div class="header">
+    <h1 class="white">Yummy Foods</h1>
+    <div class="searchBar">
+      <form action="">
+        <input type="text" placeholder="Search..">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+  
+  <div class="topnav">
+    <a href="#" class="bold">ALL PRODUCTS</a>
+    <a href="#Ads" class="bold">Ads& Coupons </a>
+    <a href="#foodCategory" class="bold" style="margin-right: 850px;"> our categories </a>
+    <a href="#" class="cartimgback"> <img class="cartimg" src="img/cart.png"/></a>
+    <a href="../Login/signIn.html"  ><span class="glyphicon glyphicon-log-in"></span> Login</a>
+    <a href="../SignUp/P6.html"  ><span class="glyphicon glyphicon-user"></span> Sign up</a>
+
+
+    <label for="Aisles" >:</label>
+    <select id="AllAiles" name="cars" style="text-align: center; float:right; margin: 20px 0px;">
+      <option value="#" ></option>
+    <option value="ClProducts.html" > cleaning goods</option>
+    <option  value="#"> Bakery</option>
+    <option value="#"> Vegi&Fruit</option>
+    <option value="#">  Alcohol</option>
+    <option value="#"> Meat</option>
+   
+  </select>
+
+
+
+  </div>
+ 
+
+</header>
+
+<div class="header">
+  <h1 class="welmesg" >Welcom to online grocery store </h1>
+ 
+
+  
+</div>
+
+
+
+
+
+
+                          <!-- intro-->
+<section >
+
+<!-- the intro picture is taken from google images -->
+  <div class="container-fluid" style="margin-bottom: 200px;"> </div> 
+            <div  class="imgbor">
+            <img class="imgintro" src="img/int.png"/>
+            </div>
+  </div>
+
+
+</section>
+
+<!-- Ailse quick access-->
+<!-- all quick access's pics are taken from google images -->
+
+
+<section class="QASection" id="foodCategory">
+
+
+  <div>
+    <h2 style="text-align:center; display:block;padding:30px;  " >Food by category</h2>
+  </div>
+         
+
+              <div class="container" style="position: absolute; left: 24%;">
+              
+                <div class="row">
+                  
+                  <div class="col"><a href="#" onclick="AilseClRedirect()"><img src="img/clean.jpg" class="imgQAsec"/>
+                    
+                    
+                   
+                  
+                  
+                  
+                  
+                  
+                  
+                  </a> </div>
+                  <div>&nbsp;&nbsp;&nbsp; </div>
+                  <div class="col"> <a href="#"><img src="img/frozen.jpg" class="imgQAsec"/>
+                    
+                    
+                   
+                    
+                  
+                  
+                  
+                  
+                  
+                  </a> </div>
+                  <div>&nbsp;&nbsp;&nbsp; </div>
+                  <div class="col"> <a href="#"><img src="img/meat.jpg" class="imgQAsec"/>
+                    
+                    
+                   
+                    
+                  
+                  
+                  
+                  
+                  
+                  </a> </div>
+                  <div>&nbsp;&nbsp;&nbsp; </div>
+                  
+
+               
+                </div>
+                
+                <div class="row">
+
+                  <div class="col"><br/> <a href="#" ><img src="img/bev.jpg" class="imgQAsec"/>
+                    
+                    
+                   
+                    
+                  
+                  
+                  
+                  
+                  
+                  </a> </div>
+
+
+                  <div>&nbsp;&nbsp;&nbsp;</div>
+                  <div class="col"><br/> <a href="#"><img src="img/alcohol.jpg" class="imgQAsec"/>
+                    
+                    
+                   
+                   
+                  
+                  
+                  
+                  
+                  
+                  </a> </div>
+
+
+                  <div>&nbsp;&nbsp;&nbsp;</div>
+                  <div class="col"><br/> <a href="#"><img src="img/bakery.jpg" class="imgQAsec"/>
+                    
+                    
+                   
+                   
+                  
+                  
+                  
+                  
+                  
+                  </a> </div>
+
+                </div>
+
+
+
+                <div class="row">
+
+                  <div class="col"><br/> <a href="#" ><img src="img/dairy.jpg" class="imgQAsec"/>
+                    
+                    
+                   
+                    
+                  
+                  
+                  
+                  
+                  
+                  </a> </div>
+
+
+                  <div>&nbsp;&nbsp;&nbsp;</div>
+                  <div class="col"><br/> <a href="#"><img src="img/vf.jpg" class="imgQAsec"/>
+                    
+                    
+                   
+                   
+                  
+                  
+                  
+                  
+                  
+                  </a> </div>
+
+
+                  <div>&nbsp;&nbsp;&nbsp;</div>
+                  <div class="col"><br/> <a href="#"><img src="img/snack.jpg" class="imgQAsec"/>
+                    
+                    
+                   
+                   
+                  
+                  
+                  
+                  
+                  
+                  </a> </div>
+
+                </div>
+
+               
+              
+
+              </div>
+
+
+</section>
+
+<!-- images slider-->
+
+<!-- all  pics are taken from https://www.google.com/search?q=grocery+flyer&tbm=isch&ved=2ahUKEwjVoMzQiM7qAhUjwCkDHUf4D5QQ2-cCegQIABAA&oq=groceryflyer&gs_lcp=CgNpbWcQARgAMgYIABAHEB4yBggAEAcQHjIGCAAQBxAeMgYIABAHEB4yBggAEAcQHjIGCAAQBxAeMgYIABAHEB4yBggAEAcQHjIGCAAQBxAeMgYIABAHEB5Q2yFYnjFgwj5oAHAAeACAAU2IAf8DkgEBN5gBAKABAaoBC2d3cy13aXotaW1n&sclient=img&ei=rVYOX5WWB6OAp8kPx_C_oAk&bih=937&biw=1920&rlz=1C1CHBF_enCA893CA893-->
+
+
+
+<section id="Ads">
+
+  <h1 class="weeklyads">Weekly Ads</h1>
+ 
+  <div class="slidecontainer">
+
+
+
+      
+      <!--  
+      <img src="img/974008-1200-100000.jpg" style="width:100%; ">
+      -->
+    
+
+    <div class="mySlides fade">
+      
+      <img src="img/974008-1200-100000.jpg" style="width:100%; ">
+      
+    </div>
+    
+    <div class="mySlides fade">
+      
+      <img src="img/974011-1200-100000.jpg" style="width:100%; ">
+      
+    </div>
+    
+    <div class="mySlides fade">
+      
+      <img src="img/974014-1200-100000.jpg" style="width:100%; ">
+      
+    </div>
+    
+    </div>
+    <br>
+    
+    <div style="text-align:center">
+      <span class="circle"></span> 
+      <span class="circle"></span> 
+      <span class="circle"></span> 
+    </div>
+    
+
+<!-- empty div for space!!!-->
+<div style="margin-bottom: 25px;">
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<footer >
+  <div class="footer">
+    <div class="generalinf">
+      <p><a href="#">FIND</a> &emsp;&emsp;&emsp;&emsp;&emsp;  <a href="#">FIND LOCATION</a> &emsp;&emsp;&emsp;&emsp;&emsp; <a href="#">HELP CENTER</a> </p>
+
+    </div>
+    <div class="fontF">
+      <p>Product &emsp;&emsp;&emsp;&emsp;&emsp; Support & Resources  &emsp;&emsp;&emsp;&emsp;&emsp; Partnerships</p>
+    </div>
+    
+
+
+
+      <div class="folist"><a href="https://www.facebook.com/"><img src="img/Face.png" class="imgfolist"/></a></div>
+      
+      
+      
+      <div  class="folist" ><a href="https://www.instagram.com/"><img src="img/IG.png"  class="imgfolist"/></a></div>
+      
+      
+      <div  class="folist" ><a href="https://www.twitter.com/"><img src="img/Twit.png"  class="imgfolist"/></a></div>
+      <h1 class="footRightRe"><br/><br/><br/>© 2020 All rights reserved. </h1>
+
+
+      
+  </div>
+ </footer>
+
+           
+<script src="AnimationAndRedirecting.js">
+
+
+</script>
+
+</body>
+
+
+
+
+</html>

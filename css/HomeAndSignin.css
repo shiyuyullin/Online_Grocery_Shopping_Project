@@ -183,7 +183,8 @@ a:link, a:visited{
   width: 900px;
   height: 700px;
   
- 
+  max-width:100%;
+  max-height: 100%;
 }
 
 .imgbor
@@ -193,7 +194,8 @@ a:link, a:visited{
   width: 905px;
   margin-left: 25%;
   height: 705px;
-
+  max-width:100%;
+  max-height: 100%;
 }
 
 
@@ -251,12 +253,20 @@ a:link, a:visited{
 
 
 /* Quick Access*/
+.containerQA {  
 
+  display: grid;  
+ 
+  grid-template-columns: 2fr 2fr 2fr;  
+  
+}
 .QASection
 {
 
-  width: auto;
+ 
   height: 1000px;
+  max-width:100%;
+  max-height: 100%;
 }
 
 
@@ -264,7 +274,8 @@ a:link, a:visited{
 {
   width: 300px;
   height: 250px;
-  
+  max-width:100%;
+  max-height: 100%;
 }
 
 
@@ -360,37 +371,14 @@ a:link, a:visited{
 
 
 
+@media only screen and (max-width: 800px) {
 
 
- /* For mobile phones: */
- @media only screen and (max-width:1000px) {
 
-  body, .topnav, .header {
+  .QASection,.containerQA{
+
+
     width: 100%;
-  }
-}
-@media only screen and (max-width:1000px) {
-
-  .QASection,.container{
-    width: 750px;
-    width: 550px;
-  }
-}
-@media only screen and (max-width:1000px) {
-
-  .imgQAsec{
-    width: 150px;
-    height: 150px;
-  }
-}
-
-
-
-@media only screen and (max-width:800px) {
-  
-  .imgintro,.imgbor {
-    width: 300px;
-    height: 300px;
     
   }
 }
@@ -398,16 +386,6 @@ a:link, a:visited{
 
 
 
-@media only screen and (max-width:800px) {
- 
-  .ads {
-    width: 100px;
-   
-    height: 100px;
-    
-    
-  }
-}
 
 
 

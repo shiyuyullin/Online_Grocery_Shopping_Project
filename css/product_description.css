@@ -24,15 +24,12 @@
             display: table;
         }
 
-        [class*="col-"] {
-            float: left;
-            padding: 5px;
-        }
-
 
         /* stacks columns when screen gets less than 600*/
         [class*="col-"] {
             width: 100%;
+            float: left;
+            padding: 5px;
         }
 
 

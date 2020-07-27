@@ -129,6 +129,13 @@ td {
     box-sizing: border-box;
 }
 
+.signup input[type=text]:focus,
+.signup input[type=password]:focus,
+.signup select:focus {
+    outline-style: solid;
+    outline-color: red;
+}
+
 .signup input[type=submit] {
     width: 100%;
     background-color: #4CAF50;

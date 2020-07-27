@@ -45,50 +45,42 @@
       </thead>
       <tbody>
       
-        
+        <tr>
           <td class="Item"><label>Boneless Trimmed Chicken Breasts</label></td>
 
           <td class="Image">
           <a href="#"><img src="../image/Boneless Trimmed Chicken Breasts.jpg" alt="Boneless Chicken Breasts" style="width:90%"></a>
                
             
-          <td class="Price"><label>$17.63 avg. ea.</label></td>
+          <td class="Price">$<span id="price">17.63</span>avg. ea.</td>
           
            
           </td>
+
           <td class="quantity"><form action="/action_page.php">
             <label for="cars">Quantity:</label>
-            <select name="cars" id="cars">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-            </select>
-            
+            <input id="num" type="text" oninput="calcTotal()" value="1"/>
+            <script src="../js/frontsotre.js"></script> 
           </td>
-          <td class="Price">$17.63</td>
+
+          <td class="Price">$<span id="total1">20.27</span></td>
+
         </tr>
      
       
         <tr>
           <td class="quantity-span" colspan="4">Subtotal</td>
-          <td class="Price">$17.63</td>
+          <td class="Price">$<span id="subtotal">17.63</span></td>
         </tr>
         
           <tr>
             <td class="quantity-span" colspan="4">QST(9.975%)</td>
-            <td class="Price">$1.76</td>
+            <td class="Price">$<span id="QST">1.76</span></td>
           </tr>
 
           <tr>
             <td class="quantity-span" colspan="4">GST(5%)</td>
-            <td class="Price">$0.88</td>
+            <td class="Price">$<span id="GST">0.88</span></td>
           </tr>
 
 
@@ -96,7 +88,7 @@
         <tr class="totals">
           <td colspan="2"><input type="submit" name="submit" value="Checkout" /></td>
           <td class="quantity-span" colspan="2">Total</td>
-          <td class="Price">$20.27</td>
+          <td class="Price">$<span id="total2">20.27</span></td>
         </tr> 
       </tbody>
     </table>

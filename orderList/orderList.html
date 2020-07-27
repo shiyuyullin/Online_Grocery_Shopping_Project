@@ -12,10 +12,10 @@
 
         </div> 
           
-        <a href="blankPage.html"><button type="button">add order</button></a>
+        <a href="addOrder.html"><button type="button">add order</button></a>
         <button type="button" style="float: right;">save</button>
 
-        <table style="width:100%" class="orderTable">
+        <table style="width:100%" class="orderTable" id="orderList"> 
             <tr>
               <th class="bigfonts">Customer</th>
               <th class="bigfonts">Order Status</th> 
@@ -32,7 +32,8 @@
                 <td class="big-margin">008-93238</td>
                 <td class="big-margin">2020-07-05</td>
                 <td class="big-margin">
-                    <button type="button">delete</button>
+                    <button type="button" value="delete" onclick="deleteRow('orderList', this)">delete</button>
+                    <script src="../js/backstore.js"></script>
                     <a href="Lin_Order.html"><button type="button">edit</button></a>
                 </td>
             </tr>
@@ -43,7 +44,8 @@
                 <td class="big-margin">008-93685</td>
                 <td class="big-margin">2020-07-05</td>
                 <td class="big-margin">
-                    <button type="button">delete</button>
+                    <button type="button" value="delete" onclick="deleteRow('orderList', this)">delete</button>
+                    <script src="../js/backstore.js"></script>
                     <a href="Wang_Order.html"><button type="button">edit</button></a>
                 </td>
             </tr>
@@ -54,7 +56,8 @@
                 <td class="big-margin">008-93686</td>
                 <td class="big-margin">2020-07-05</td>
                 <td class="big-margin">
-                    <button type="button">delete</button>
+                    <button type="button" value="delete" onclick="deleteRow('orderList', this)">delete</button>
+                    <script src="../js/backstore.js"></script>
                     <a href="Tom_Order.html"><button type="button">edit</button></a>
                 </td>
             </tr>
@@ -65,7 +68,8 @@
                 <td class="big-margin">008-93687</td>
                 <td class="big-margin">2020-07-05</td>
                 <td class="big-margin">
-                    <button type="button">delete</button>
+                    <button type="button" value="delete" onclick="deleteRow('orderList', this)">delete</button>
+                    <script src="../js/backstore.js"></script>
                     <a href="Jin_Order.html"><button type="button">edit</button></a>
                 </td>
             </tr>
@@ -76,7 +80,8 @@
                 <td class="big-margin">008-93688</td>
                 <td class="big-margin">2020-07-05</td>
                 <td class="big-margin">
-                    <button type="button">delete</button>
+                    <button type="button" value="delete" onclick="deleteRow('orderList', this)">delete</button>
+                    <script src="../js/backstore.js"></script>
                     <a href="Jerry_Order.html"><button type="button">edit</button></a>
                 </td>
             </tr>

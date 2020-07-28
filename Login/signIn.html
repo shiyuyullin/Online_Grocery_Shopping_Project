@@ -56,13 +56,13 @@
         <div>
             <br/>
 
-            <button class="btnlogin" id="SigninBtn"> Login</button>
+            <button class="btnlogin" id="SigninBtn" onclick="LoginValidate()"> Login</button>
         </div>
 
 
 
           <div style="width: 200px;">
-              <input type="checkbox" onchange="EnablingForget()" id="Forgetbtn" value="uncheked"><span class="forgetForm">Forget the password</span> </input>
+              <input type="checkbox" onclick="EnablingForget()" id="Forgetbtn" value="uncheked"><span class="forgetForm">Forget the password</span> </input>
           </div>
 
 
@@ -104,7 +104,7 @@
     <div>
         <br/>
 
-        <button class="btnlogin" disabled id="subBtn"> submit</button>
+        <button class="btnlogin" disabled id="subBtn" onclick="CheckeValidatResubmitInfo()"> submit</button>
     </div>
 
 
@@ -132,7 +132,7 @@
 
 
 
-<script src="AnimationAndRedirecting.js">
+<script src="../SignInVal.js">
 
 
 </script>

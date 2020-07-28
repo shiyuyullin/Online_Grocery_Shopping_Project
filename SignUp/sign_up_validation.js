@@ -1,4 +1,17 @@
-
+function resetForm() {
+    var firstName = document.getElementById("firstName");
+    var lastName = document.getElementById("lastName");
+    var email = document.getElementById("email");
+    var confirmEmail = document.getElementById("confirmEmail");
+    var password = document.getElementById("password");
+    var confirmPassword = document.getElementById("confirmPassword");
+    lastName.style.backgroundColor = "white";
+    firstName.style.backgroundColor = "white";
+    email.style.backgroundColor = "white";
+    confirmEmail.style.backgroundColor = "white";
+    password.style.backgroundColor = "white";
+    confirmPassword.style.backgroundColor = "white";
+}
 function validate() {
     var firstName = document.getElementById("firstName");
     var lastName = document.getElementById("lastName");

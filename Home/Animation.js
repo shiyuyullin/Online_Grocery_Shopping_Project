@@ -23,4 +23,4 @@ function nextSlide() {
 
 
 
-
+nextSlide();

@@ -1,53 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Edit Order</title>
-        <link rel="stylesheet" type="text/css" href="../css/backstore.css">
-    </head>
-    <div class="header">
-        <h1>Edit Order</h1>
-        <hr/>
+<html>
+<head>
+<title>Edit Order</title>
+<link rel="stylesheet" type="text/css" href="../css/backstore.css">
+<script>
+function validateForm() {
+  var x = document.forms["myForm"]["fname"].value;
+  if (x == "") {
+    alert("Customer name must be filled out!");
+    return false;
+  }
+  if(x.match(/[0-9]/)){
+      alert("Customer name cannot contain any numbers!")
+      return false;
+  }
+  x = document.forms["myForm"]["fnum"].value;
+  if (x == "") {
+    alert("Order number must be filled out!");
+    return false;
+  }
+  if (!x.match(/\d\d\d-\d\d\d\d\d/)) {
+    alert("Please check! Format of the order number is incorrect!");
+    return false;
+  }
+  x = document.forms["myForm"]["detail"].value;
+  if (x == "") {
+    alert("Order detail must be filled out!");
+    return false;
+  }
+  x = document.forms["myForm"]["total"].value;
+  if (x == "") {
+    alert("Total amount of money must be given!");
+    return false;
+  }
+  if (!x.match(/[0-9]/)) {
+    alert("Total amount of money has to be a number!");
+    return false;
+  }
+}
+</script>
+</head>
+<body>
 
-    </div> 
+<div class="header">
+    <h1>Edit Order</h1>
+    <hr/>
+</div> 
 
-  <form action="/action_page.php">
-    <label for="CustomerName">Customer Name:</label><br>
-    <input type="CustomerName" id="CustomerName" name="CustomerName"size="50"value="Alan Tom"> <br><br>
-
-
-    <form action="/action_page.php">
-        <label for="OrderNumber">Order Number:</label><br>
-        <input type="OrderNumber" id="OrderNumber" name="OrderNumber"size="50"value="008-93686" ><br><br>
-
-
-
-    <form action="/action_page.php">
-        <label for="OrderDetail">Order Detail</label><br>
-        <textarea id="OrderDetail" name="OrderDetail"  rows="4" cols="50">
-    Boneless Chicken Breasts--2  
-    Boneless European cut bottom blade roast--900g
-        </textarea><br><br>
-       
-
-        <form action="/action_page.php">
-            <label for="img">Select image:</label>
-            <input type="file" id="img" name="img" accept="image/*"> 
-            <input type="submit"><br><br>
-          </form>
+<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+  Customer Name: <br><input type="text" name="fname" size="50" value="Alan Tom"><br><br>
+  Order Number: <br><input type="text" name="fnum" size="50" value="008-93686"><br><br>
+  Order Detail: <br><input type="text" name="detail" size="50" style="height:200px;" value="Boneless Chicken Breasts--2  
+  Boneless European cut bottom blade roast--900g"><br><br>
+  Total (in Canadian dollar):  <br><input type="text" name="total" size="50" value="105.303"><br><br> 
+  Extra information: <br><textarea id="notes" name="notes"  rows="4" cols="50"></textarea><br><br>
 
 
-
-     <form action="/action_page.php">
-        <label for="Total">Total: </label><br>
-        <input type="Total" id="Total" name="Total" size="50"value="$105.303" ><br><br>
-
-
-        <br><br>
-        <input type="submit" value="Save & Submit">
-    </form>
-
-
-
+  <input type="submit" value="Submit">
+</form>
 
 </body>
 </html>

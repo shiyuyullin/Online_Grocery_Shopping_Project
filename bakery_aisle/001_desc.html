@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Product Description | Our Store</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="../css/aisle_style.css">
-        <link rel="stylesheet" type="text/css" href="../css/product_description.css">
-        </script>
-    </head>
+
+<head>
+    <title>Product Description | Our Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/aisle_style.css">
+    <link rel="stylesheet" type="text/css" href="../css/product_description.css">
+    </script>
+</head>
+
 <body>
 
-  <div class="header">
-    <h1 class="white">YUMMY FOODS</h1>
-    <div class="searchBar">
-      <form action="">
-        <input type="text" placeholder="Search..">
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-  </div>
-  
-  <div class="topnav">
-    <a href="../Home/Home.html" class="bold">HOME</a>
-    <a href="#" class="bold">ALL PRODUCTS</a>
-    <a href="#" class="bold">FLYER</a>
-    <a href="#" class="bold">DEAL OF TODAY</a>
-    <a href="#" class="bold">RECOMMANDED COMBO</a>
-  </div>
-
-  <div class="row">
-    <h1 class="message">Product Description</h1>
+    <div class="header">
+        <h1 class="white">YUMMY FOODS</h1>
+        <div class="searchBar">
+            <form action="">
+                <input type="text" placeholder="Search..">
+                <button type="submit">Submit</button>
+            </form>
         </div>
+    </div>
+
+    <div class="topnav">
+        <a href="../Home/Home.html" class="bold">HOME</a>
+        <a href="#" class="bold">ALL PRODUCTS</a>
+        <a href="#" class="bold">FLYER</a>
+        <a href="#" class="bold">DEAL OF TODAY</a>
+        <a href="#" class="bold">RECOMMANDED COMBO</a>
+    </div>
+
+    <div class="row">
+        <h1 class="message">Product Description</h1>
+    </div>
     <div style="color:white">
         <h3 style="color:black">Please find a description below
             <p style="margin: 25px;"></p>
@@ -38,7 +40,8 @@
     <div class="bodyBackground description">
         <div class="row">
             <div class="col-5">
-                <div style="float:right"><img src="../image/english_muffins.jpg" alt="english muffins" style="margin-right: 100px;"></div>
+                <div style="float:right"><img src="../image/english_muffins.jpg" alt="english muffins"
+                        style="margin-right: 100px;"></div>
             </div>
             <div class="col-7">
                 <h3>English Muffins, 6 pack
@@ -68,34 +71,18 @@
     <p style="margin:75px"></p>
     <div class="footer">
         <div class="row">
-          <p class="generalinf"><a href="#">FIND</a> &emsp;&emsp;&emsp;&emsp;&emsp;  <a href="#">FIND LOCATION</a> &emsp;&emsp;&emsp;&emsp;&emsp; <a href="#">HELP CENTER</a></p>
-          
+            <p class="generalinf"><a href="#">FIND</a> &emsp;&emsp;&emsp;&emsp;&emsp; <a href="#">FIND LOCATION</a>
+                &emsp;&emsp;&emsp;&emsp;&emsp; <a href="#">HELP CENTER</a></p>
+
         </div>
         <div class="row">
-          <div class="fontF">
-            <p>Product &emsp;&emsp; Support & Resources  &emsp;&emsp; Partnerships</p>
-          </div>
+            <div class="fontF">
+                <p>Product &emsp;&emsp; Support & Resources &emsp;&emsp; Partnerships</p>
+            </div>
         </div>
-      </div>
-    <script>
-        var acc = document.getElementsByClassName("accordion");
-        var i;
-
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function () {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.display === "block") {
-                    panel.style.display = "none";
-                } else {
-                    panel.style.display = "block";
-                }
-            });
-        }
-    </script>
-
-
-
+    </div>
+    <script src="../js/product_description.js"></script>
 
 </body>
+
 </html>

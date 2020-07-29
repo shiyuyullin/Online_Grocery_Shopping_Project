@@ -38,6 +38,36 @@ function validateForm() {
     return false;
   }
 }
+window.onbeforeunload = function(){
+  localStorage.setItem("name3", document.getElementById("name").value);
+  localStorage.setItem("orderNumber3", document.getElementById("orderNum").value);
+  localStorage.setItem("detail3", document.getElementById("detail").value);
+  localStorage.setItem("total3", document.getElementById("total").value);
+  localStorage.setItem("extranote3", document.getElementById("extranote").value);
+}
+
+window.onload = function(){
+  var name = localStorage.getItem("name3");
+  if(name != null){
+    document.getElementById("name").value = localStorage.getItem("name3");
+  }
+  var name = localStorage.getItem("orderNumber3");
+  if(name != null){
+    document.getElementById("orderNum").value = localStorage.getItem("orderNumber3");
+  }
+  var name = localStorage.getItem("detail3");
+  if(name != null){
+    document.getElementById("detail").value = localStorage.getItem("detail3");
+  }
+  var name = localStorage.getItem("total3");
+  if(name != null){
+    document.getElementById("total").value = localStorage.getItem("total3");
+  }
+  var name = localStorage.getItem("extranote3");
+  if(name != null){
+    document.getElementById("extranote").value = localStorage.getItem("extranote3");
+  }
+}
 </script>
 </head>
 <body>
@@ -48,12 +78,12 @@ function validateForm() {
 </div> 
 
 <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
-  Customer Name: <br><input type="text" name="fname" size="50" value="Harry Jin"><br><br>
-  Order Number: <br><input type="text" name="fnum" size="50" value="008-93687"><br><br>
+  Customer Name: <br><input type="text" name="fname" size="50" value="Harry Jin" id="name"><br><br>
+  Order Number: <br><input type="text" name="fnum" size="50" value="008-93687" id="orderNum"><br><br>
   Order Detail: <br><input type="text" name="detail" size="50" style="height:200px;" value="Boneless Chicken Breasts--2  
-  Boneless European cut bottom blade roast--900g"><br><br>
-  Total (in Canadian dollar):  <br><input type="text" name="total" size="50" value="115.53"><br><br> 
-  Extra information: <br><textarea id="notes" name="notes"  rows="4" cols="50"></textarea><br><br>
+  Boneless European cut bottom blade roast--900g" id="detail"><br><br>
+  Total (in Canadian dollar):  <br><input type="text" name="total" size="50" value="115.53" id="total"><br><br> 
+  Extra information: <br><textarea id="notes" name="notes"  rows="4" cols="50"id="extranote"></textarea><br><br>
 
 
   <input type="submit" value="Submit">

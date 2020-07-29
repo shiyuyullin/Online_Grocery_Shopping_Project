@@ -50,6 +50,36 @@
                 return false;
               }
             }
+            window.onbeforeunload = function(){
+                localStorage.setItem("title5", document.getElementById("Title").value);
+                localStorage.setItem("price5", document.getElementById("Price").value);
+                localStorage.setItem("description5", document.getElementById("Description").value);
+                localStorage.setItem("quantity5", document.getElementById("Quantity").value);
+                localStorage.setItem("productnum5", document.getElementById("Product Number").value);
+            }
+
+            window.onload = function(){
+                var name = localStorage.getItem("title5");
+                if(name != null){
+                  document.getElementById("Title").value = localStorage.getItem("title5");
+                }
+                var name = localStorage.getItem("price5");
+                if(name != null){
+                  document.getElementById("Price").value = localStorage.getItem("price5");
+                }
+                var name = localStorage.getItem("description5");
+                if(name != null){
+                  document.getElementById("Description").value = localStorage.getItem("description5");
+                }
+                var name = localStorage.getItem("quantity5");
+                if(name != null){
+                  document.getElementById("Quantity").value = localStorage.getItem("quantity5");
+                }
+                var name = localStorage.getItem("productnum5");
+                if(name != null){
+                  document.getElementById("Product Number").value = localStorage.getItem("productnum5");
+                } 
+            }
             </script>
     </head>
     <div class="header">

@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="../css/aisle_style.css">
 <link rel="stylesheet" type="text/css" href="../css/P4CSS.css">
+<script type="text/javascript" src="../js/frontsotre.js"></script>
 </head>
 <body>
 
@@ -30,8 +31,6 @@
 
   
   <h1>Shopping Cart</h1>
-  
-  
  
     <table cellspacing="0" class="shopping-cart">
       <thead>
@@ -59,28 +58,27 @@
 
           <td class="quantity"><form action="/action_page.php">
             <label for="cars">Quantity:</label>
-            <input id="num" type="text" oninput="calcTotal()" value="1"/>
-            <script src="../js/frontsotre.js"></script> 
+            <input id="num" type="text" oninput="calcTotal()" value=""/>
           </td>
 
-          <td class="Price">$<span id="total1">20.27</span></td>
+          <td class="Price">$<span id="total1"></span></td>
 
         </tr>
      
       
         <tr>
           <td class="quantity-span" colspan="4">Subtotal</td>
-          <td class="Price">$<span id="subtotal">17.63</span></td>
+          <td class="Price">$<span id="subtotal"></span></td>
         </tr>
         
           <tr>
             <td class="quantity-span" colspan="4">QST(9.975%)</td>
-            <td class="Price">$<span id="QST">1.76</span></td>
+            <td class="Price">$<span id="QST"></span></td>
           </tr>
 
           <tr>
             <td class="quantity-span" colspan="4">GST(5%)</td>
-            <td class="Price">$<span id="GST">0.88</span></td>
+            <td class="Price">$<span id="GST"></span></td>
           </tr>
 
 
@@ -88,7 +86,7 @@
         <tr class="totals">
           <td colspan="2"><input type="submit" name="submit" value="Checkout" /></td>
           <td class="quantity-span" colspan="2">Total</td>
-          <td class="Price">$<span id="total2">20.27</span></td>
+          <td class="Price">$<span id="total2"></span></td>
         </tr> 
       </tbody>
     </table>

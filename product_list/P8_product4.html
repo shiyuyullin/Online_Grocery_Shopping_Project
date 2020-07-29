@@ -50,6 +50,36 @@
                 return false;
               }
             }
+            window.onbeforeunload = function(){
+                localStorage.setItem("title4", document.getElementById("Title").value);
+                localStorage.setItem("price4", document.getElementById("Price").value);
+                localStorage.setItem("description4", document.getElementById("Description").value);
+                localStorage.setItem("quantity4", document.getElementById("Quantity").value);
+                localStorage.setItem("productnum4", document.getElementById("Product Number").value);
+            }
+
+            window.onload = function(){
+                var name = localStorage.getItem("title4");
+                if(name != null){
+                  document.getElementById("Title").value = localStorage.getItem("title4");
+                }
+                var name = localStorage.getItem("price4");
+                if(name != null){
+                  document.getElementById("Price").value = localStorage.getItem("price4");
+                }
+                var name = localStorage.getItem("description4");
+                if(name != null){
+                  document.getElementById("Description").value = localStorage.getItem("description4");
+                }
+                var name = localStorage.getItem("quantity4");
+                if(name != null){
+                  document.getElementById("Quantity").value = localStorage.getItem("quantity4");
+                }
+                var name = localStorage.getItem("productnum4");
+                if(name != null){
+                  document.getElementById("Product Number").value = localStorage.getItem("productnum4");
+                } 
+            }
             </script>
     </head>
     <div class="header">
@@ -63,8 +93,7 @@
 
     Price (In Canadian dollars): <br><input type="text" id="Price" name="Price"size="50"value="2.49" ><br><br>
 
-    Description: <br><textarea id="Description" name="Description"  rows="4" cols="50">Plain white bread, 1 loaf and sliced.</textarea><br><br>
-      
+    Description: <br><input type="text" name="Description" size="50" style="height:200px;" value=" Plain white bread, 1 loaf and sliced." id="Description"><br><br>    
     <label for="img">Select image:</label>
     <input type="file" id="img" name="img" accept="image/*"> 
     <input type="submit"><br><br>

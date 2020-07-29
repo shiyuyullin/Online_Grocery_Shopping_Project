@@ -50,6 +50,36 @@
                 return false;
               }
             }
+            window.onbeforeunload = function(){
+                localStorage.setItem("title1", document.getElementById("Title").value);
+                localStorage.setItem("price1", document.getElementById("Price").value);
+                localStorage.setItem("description1", document.getElementById("Description").value);
+                localStorage.setItem("quantity1", document.getElementById("Quantity").value);
+                localStorage.setItem("productnum1", document.getElementById("Product Number").value);
+            }
+
+            window.onload = function(){
+                var name = localStorage.getItem("title1");
+                if(name != null){
+                  document.getElementById("Title").value = localStorage.getItem("title1");
+                }
+                var name = localStorage.getItem("price1");
+                if(name != null){
+                  document.getElementById("Price").value = localStorage.getItem("price1");
+                }
+                var name = localStorage.getItem("description1");
+                if(name != null){
+                  document.getElementById("Description").value = localStorage.getItem("description1");
+                }
+                var name = localStorage.getItem("quantity1");
+                if(name != null){
+                  document.getElementById("Quantity").value = localStorage.getItem("quantity1");
+                }
+                var name = localStorage.getItem("productnum1");
+                if(name != null){
+                  document.getElementById("Product Number").value = localStorage.getItem("productnum1");
+                } 
+            }
             </script>
     </head>
     <div class="header">
@@ -59,12 +89,12 @@
     </div> 
 
   <form action="#" name="productform" onsubmit="return validateForm()">
-    Title: <br><input type="text" id="Title" name="Title"size="50"value="Frozen Chicken Pot Pie, St-Hubert"> <br><br>
+    Title: <br><input type="text" id="Title" name="Title"size="50"value="Frozen Chicken Pot Pie, St-Hubert" > <br><br>
 
     Price (In Canadian dollars): <br><input type="text" id="Price" name="Price"size="50"value="7.99" ><br><br>
 
-    Description: <br><textarea id="Description" name="Description"  rows="4" cols="50">This Chicken Pot Pie will have your mouth watering for more!</textarea><br><br>
-      
+    Description: <br><input type="text" name="Description" size="50" style="height:200px;" value="This Chicken Pot Pie will have your mouth watering for more!" id="Description"><br><br>
+    
     <label for="img">Select image:</label>
     <input type="file" id="img" name="img" accept="image/*"> 
     <input type="submit"><br><br>

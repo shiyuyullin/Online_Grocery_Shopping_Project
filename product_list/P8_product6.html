@@ -50,6 +50,36 @@
                 return false;
               }
             }
+            window.onbeforeunload = function(){
+                localStorage.setItem("title6", document.getElementById("Title").value);
+                localStorage.setItem("price6", document.getElementById("Price").value);
+                localStorage.setItem("description6", document.getElementById("Description").value);
+                localStorage.setItem("quantity6", document.getElementById("Quantity").value);
+                localStorage.setItem("productnum6", document.getElementById("Product Number").value);
+            }
+
+            window.onload = function(){
+                var name = localStorage.getItem("title6");
+                if(name != null){
+                  document.getElementById("Title").value = localStorage.getItem("title6");
+                }
+                var name = localStorage.getItem("price6");
+                if(name != null){
+                  document.getElementById("Price").value = localStorage.getItem("price6");
+                }
+                var name = localStorage.getItem("description6");
+                if(name != null){
+                  document.getElementById("Description").value = localStorage.getItem("description6");
+                }
+                var name = localStorage.getItem("quantity6");
+                if(name != null){
+                  document.getElementById("Quantity").value = localStorage.getItem("quantity6");
+                }
+                var name = localStorage.getItem("productnum6");
+                if(name != null){
+                  document.getElementById("Product Number").value = localStorage.getItem("productnum6");
+                } 
+            }
             </script>
     </head>
     <div class="header">
@@ -63,8 +93,8 @@
 
     Price (In Canadian dollars): <br><input type="text" id="Price" name="Price"size="50"value="2.99" ><br><br>
 
-    Description: <br><textarea id="Description" name="Description"  rows="4" cols="50">Fresh baked baguette with natural ingredients.</textarea><br><br>
-      
+    Description: <br><input type="text" name="Description" size="50" style="height:200px;" value=" Fresh baked baguette with natural ingredients." id="Description"><br><br>    
+
     <label for="img">Select image:</label>
     <input type="file" id="img" name="img" accept="image/*"> 
     <input type="submit"><br><br>

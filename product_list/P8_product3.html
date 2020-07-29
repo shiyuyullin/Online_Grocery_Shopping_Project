@@ -50,6 +50,36 @@
                 return false;
               }
             }
+            window.onbeforeunload = function(){
+                localStorage.setItem("title3", document.getElementById("Title").value);
+                localStorage.setItem("price3", document.getElementById("Price").value);
+                localStorage.setItem("description3", document.getElementById("Description").value);
+                localStorage.setItem("quantity3", document.getElementById("Quantity").value);
+                localStorage.setItem("productnum3", document.getElementById("Product Number").value);
+            }
+
+            window.onload = function(){
+                var name = localStorage.getItem("title3");
+                if(name != null){
+                  document.getElementById("Title").value = localStorage.getItem("title3");
+                }
+                var name = localStorage.getItem("price3");
+                if(name != null){
+                  document.getElementById("Price").value = localStorage.getItem("price3");
+                }
+                var name = localStorage.getItem("description3");
+                if(name != null){
+                  document.getElementById("Description").value = localStorage.getItem("description3");
+                }
+                var name = localStorage.getItem("quantity3");
+                if(name != null){
+                  document.getElementById("Quantity").value = localStorage.getItem("quantity3");
+                }
+                var name = localStorage.getItem("productnum3");
+                if(name != null){
+                  document.getElementById("Product Number").value = localStorage.getItem("productnum3");
+                } 
+            }
             </script>
     </head>
     <div class="header">
@@ -63,8 +93,7 @@
 
     Price (In Canadian dollars): <br><input type="text" id="Price" name="Price"size="50"value="16.63" ><br><br>
 
-    Description: <br><textarea id="Description" name="Description"  rows="4" cols="50">Fresh meat that are nicely splited</textarea><br><br>
-      
+    Description: <br><input type="text" name="Description" size="50" style="height:200px;" value=" Fresh meat that are nicely splited" id="Description"><br><br>  
     <label for="img">Select image:</label>
     <input type="file" id="img" name="img" accept="image/*"> 
     <input type="submit"><br><br>

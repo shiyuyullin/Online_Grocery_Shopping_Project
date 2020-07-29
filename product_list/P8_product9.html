@@ -3,6 +3,54 @@
     <head>
         <title>Edit Product</title>
         <link rel="stylesheet" type="text/css" href="../css/backstore.css">
+        <script>
+            function validateForm() {
+              var x = document.forms["productform"]["Title"].value;
+              if (x == "") {
+                alert("Title must be filled out!");
+                document.getElementById("Title").focus();
+                return false;
+              }
+              if(!x.match(/[A-Z_a-z_0-9]/)){
+                  alert("Title should not contain any special characters!")
+                  document.getElementById("Title").focus();
+                  return false;
+              }
+              x = document.forms["productform"]["Price"].value;
+              if (x == "") {
+                alert("Price must be filled out!");
+                document.getElementById("Price").focus();
+                return false;
+              }
+              if (!x.match(/[0-9]/)) {
+                alert("Please check! The price must be a number!");
+                document.getElementById("Price").focus();
+                return false;
+              }
+              x = document.forms["productform"]["Quantity"].value;
+              if (x == "") {
+                alert("Quantity must be filled out!");
+                document.getElementById("Quantity").focus();
+                return false;
+              }
+              if (x.match(/[^0-9]/)) {
+                alert("Please check! The quantity must be a number!");
+                document.getElementById("Quantity").focus();
+                return false;
+              }
+              x = document.forms["productform"]["Product Number"].value;
+              if (x == "") {
+                alert("Total amount of money must be given!");
+                document.getElementById("Product Number").focus();
+                return false;
+              }
+              if (!x.match(/\d\d\d-\d\d\d-\d\d\d/)) {
+                alert("The format of product number is incorrect! xxx-xxx-xxx!");
+                document.getElementById("Product Number").focus();
+                return false;
+              }
+            }
+            </script>
     </head>
     <div class="header">
         <h1>Edit Product</h1>
@@ -10,49 +58,23 @@
 
     </div> 
 
-  <form action="/action_page.php">
-    <label for="Title">Title:</label><br>
-    <input type="Title" id="Title" name="Title"size="50"value="Apples"> <br><br>
+  <form action="#" name="productform" onsubmit="return validateForm()">
+    Title: <br><input type="text" id="Title" name="Title"size="50"value="Apples"> <br><br>
 
+    Price (In Canadian dollars): <br><input type="text" id="Price" name="Price"size="50"value="0.91" ><br><br>
 
-    <form action="/action_page.php">
-        <label for="Price">Price</label><br>
-        <input type="Price" id="Price" name="Price"size="50"value="$0.91 avg. ea." ><br><br>
+    Description: <br><textarea id="Description" name="Description"  rows="4" cols="50">Made up of water and Carbohydrates. Color: Red.</textarea><br><br>
+      
+    <label for="img">Select image:</label>
+    <input type="file" id="img" name="img" accept="image/*"> 
+    <input type="submit"><br><br>
+          
+    Quantity:<br><input type="text" id="Quantity" name="Quantity" size="50"value="75" ><br><br>
 
+    Product Number:<br><input type="text" id="Product Number" name="Product Number"size="50"value="487-959-002" ><br><br>
 
-
-    <form action="/action_page.php">
-        <label for="Description">Description</label><br>
-        <textarea id="Description" name="Description"  rows="4" cols="50">Made up of water and Carbohydrates. Color: Red.
-        </textarea><br><br>
-       
-
-        <form action="/action_page.php">
-            <label for="img">Select image:</label>
-            <input type="file" id="img" name="img" accept="image/*"> 
-            <input type="submit"><br><br>
-          </form>
-
-
-
-     <form action="/action_page.php">
-        <label for="Quantity">Quantity:</label><br>
-        <input type="Quantity" id="Quantity" name="Quantity" size="50"value="75" ><br><br>
-
-
-
-
-    <form action="/action_page.php">
-        <label for="Product Number">Product Number:</label><br>
-        <input type="Product Number" id="Product Number" name="Product Number"size="50"value="487-959-002" ><br><br>
-
-
-        <br><br>
-        <input type="submit" value="Submit">
-    </form>
-
-
-
+    <input type="submit" value="Submit">
+  </form>
 
 </body>
 </html>

@@ -1,47 +1,46 @@
-<script type = "text/javascript">
-   <!--
-       {
-      
-         if( document.myForm.Name.value == "" )
+     
+     function validate() 
+     {
+        var name = document.getElementById("name");
+        var email = document.getElementById("email");
+        var postal = document.getElementById("postal");
+             
+         
+         if( name.value == "" )
           {
             alert( "Please provide your name!" );
-            document.myForm.Name.focus() ;
+            name.focus() ;
             return false;
          }
 
 
-         if( document.myForm.EMail.value == "" ) 
+         if( email.value == "" ) 
          {
             alert( "Please provide your Email!" );
-            document.myForm.EMail.focus() ;
+            email.focus() ;
             return false;
          }
 
 
-         if( document.myForm.Zip.value == "" || isNaN( document.myForm.Zip.value ) ||
-            document.myForm.Zip.value.length != 6 ) 
+         if( postal.value == "" || isNaN( postal.value ) || postal.length != 6 ) 
         {           
             alert( "Please provide a zip in the format ######." );
             document.myForm.Zip.focus() ;
             return false;
          }
-         return (true);
+        }
 
          function validateEmail() 
          {
-            var emailID = document.myForm.EMail.value;
-            atpos = emailID.indexOf("@");
-            dotpos = emailID.lastIndexOf(".");
-         }
-
-         if (atpos < 1 || ( dotpos - atpos < 2 )) 
+         atposition = email.indexOf("@");
+         dotposition = email.lastIndexOf(".");
+         
+         if (atposition < 1 || ( dotposition - atposition < 2 )) 
          {
             alert("Please enter correct email ID")
-            document.myForm.EMail.focus() ;
+            email.focus() ;
             return false;
          }
-
-         return (true); 
-      }
-   //-->
-</script>
+        }
+         
+  

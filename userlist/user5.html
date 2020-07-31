@@ -31,7 +31,7 @@
     <input type="text" id="city" name="city"size="20"value="Montreal"><br><br>
     
 	<label class="fonts" for="postal">Postal Code:</label>
-    <input type="text" id="postal" name="postal"size="10"value="H3G 1A8"> <br><br>
+    <input type="text" id="postal" name="postal"size="10"value="H3G1A8"> <br><br>
 	
 	<label class="fonts" for="email">E-mail:</label>
     <input type="text" id="email" name="email" size="40"value="xXpoutineloverXx@hotmail.com" required> <br><br>
@@ -40,11 +40,11 @@
     <input type="text" id="id" name="id" size="10"value="111-0001" required> <br><br>
 
         <br><br>
-        <input type="submit" value="Submit">
+        <button onclick="validate();validateEmail()" id="submitButton" class="button" type="button">Submit</button>
 		<input type="reset" value="Reset Changes">
     </form>
 
-
+    <script src="../js/userlist_validation.js"></script>
 
 
 </body>

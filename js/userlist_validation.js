@@ -3,8 +3,10 @@
      {
         var name = document.getElementById("name");
         var email = document.getElementById("email");
+        var address = document.getElementById("address");
+        var city = document.getElementById("city");
         var postal = document.getElementById("postal");
-             
+        var id = document.getElementById("id");  
          
          if( name.value == "" )
           {
@@ -22,18 +24,40 @@
          }
 
 
-         if( postal.value == "" || isNaN( postal.value ) || postal.length != 6 ) 
+         if( postal.value == "" ||  postal.value.length != 6 ) 
         {           
-            alert( "Please provide a zip in the format ######." );
-            document.myForm.Zip.focus() ;
+            alert( "Please provide a postal code in the format ######." );
+            postal.focus() ;
+            return false;
+         }
+
+         if( address.value == "" ) 
+         {
+            alert( "Please provide your Address!" );
+            address.focus() ;
+            return false;
+         }
+
+         if( city.value == "" ) 
+         {
+            alert( "Please provide your city!" );
+            city.focus() ;
+            return false;
+         }
+
+         if( id.value == "" ) 
+         {
+            alert( "Please provide your ID!" );
+            id.focus() ;
             return false;
          }
         }
 
          function validateEmail() 
          {
-         atposition = email.indexOf("@");
-         dotposition = email.lastIndexOf(".");
+         var emailID = email.value;
+         atposition = emailID.indexOf("@");
+         dotposition = emailID.lastIndexOf(".");
          
          if (atposition < 1 || ( dotposition - atposition < 2 )) 
          {

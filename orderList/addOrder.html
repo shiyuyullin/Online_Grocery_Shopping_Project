@@ -3,52 +3,84 @@
     <head>
         <title>Add Product</title>
         <link rel="stylesheet" type="text/css" href="../css/backstore.css">
+        <script>
+            function validateForm() {
+              var x = document.forms["addForm"]["Customer"].value;
+              if (x == "") {
+                alert("Customer name must be filled out!");
+                return false;
+              }
+              if(x.match(/[0-9]/)){
+                  alert("Customer name cannot contain any numbers!")
+                  return false;
+              }
+              x = document.forms["addForm"]["orderNumber"].value;
+              if (x == "") {
+                alert("Order number must be filled out!");
+                return false;
+              }
+              if (!x.match(/\d\d\d-\d\d\d\d\d/)) {
+                alert("Please check! Format of the order number is incorrect!");
+                return false;
+              }
+              x = document.forms["addForm"]["Total"].value;
+              if (x == "") {
+                alert("Total amount of money must be given!");
+                return false;
+              }
+              if (!x.match(/[0-9]/)) {
+                alert("Total amount of money has to be a number!");
+                return false;
+              }
+            }
+            window.onbeforeunload = function(){
+              localStorage.setItem("addname", document.getElementById("Customer").value);
+              localStorage.setItem("addorderNumber", document.getElementById("orderNumber").value);
+              localStorage.setItem("addtotal", document.getElementById("Total").value);
+              localStorage.setItem("adddate", document.getElementById("date").value);
+            }
+            
+            window.onload = function(){
+              var name = localStorage.getItem("addname");
+              if(name != null){
+                document.getElementById("Customer").value = localStorage.getItem("addname");
+              }
+              var name = localStorage.getItem("addorderNumber");
+              if(name != null){
+                document.getElementById("orderNumber").value = localStorage.getItem("addorderNumber");
+              }
+              var name = localStorage.getItem("addtotal");
+              if(name != null){
+                document.getElementById("Total").value = localStorage.getItem("addtotal");
+              }
+              var name = localStorage.getItem("adddate");
+              if(name != null){
+                document.getElementById("date").value = localStorage.getItem("adddate");
+              }
+            }
+            </script>
     </head>
     <div class="header">
         <h1>Add Product</h1>
         <hr/>
 
     </div> 
+<body>
+  <form action="/action_page.php" name="addForm" onsubmit="return validateForm()">
+    Customer: <br><input type="text" id="Customer" name="Customer"size="50"value=""> <br><br>
+    
+    Total: <br><input type="text" id="Total" name="Total"size="50"value="" ><br><br>
 
-  <form action="/action_page.php">
-    <label for="Customer Name">Customer:</label><br>
-    <input type="Customer" id="Customer" name="Customer"size="50"value=""> <br><br>
+    <label for="img">Select image:</label>
+    <input type="file" id="img" name="img" accept="image/*"> 
+    <input type="submit"><br><br>
+    
+    Order Number: <br><input type="text" id="orderNumber" name="orderNumber" size="50"value="" ><br><br>
+    
+    Created Date:<br><input type="text" id="date" name="date"size="50"value="" ><br><br>
 
-
-    <form action="/action_page.php">
-        <label for="Status">Order Ststus:</label><br>
-        <input type="Status" id="Status" name="Status"size="50"value="" ><br><br>
-
-
-
-    <form action="/action_page.php">
-        <label for="Total">Total:</label><br>
-        <input type="Total" id="Total" name="Total"size="50"value="" ><br><br>
-
-       
-
-        <form action="/action_page.php">
-            <label for="img">Select image:</label>
-            <input type="file" id="img" name="img" accept="image/*"> 
-            <input type="submit"><br><br>
-          </form>
-
-
-
-     <form action="/action_page.php">
-        <label for="orderNumber">Order Number:</label><br>
-        <input type="orderNumber" id="orderNumber" name="orderNumber" size="50"value="" ><br><br>
-
-
-
-
-    <form action="/action_page.php">
-        <label for="date">Created Date:</label><br>
-        <input type="date" id="date" name="date"size="50"value="" ><br><br>
-
-
-        <br><br>
-        <input type="submit" value="Submit">
+    <br><br>
+    <input type="submit" value="Submit">
 
     </form>
 

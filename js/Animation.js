@@ -21,6 +21,6 @@ function nextSlide() {
   setTimeout(nextSlide, 2500);
 }
 
-
+nextSlide();
 
 

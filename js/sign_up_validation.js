@@ -60,7 +60,8 @@ function validate() {
 }
 
 function validName(str) {
-    return !str.match(/[^A-Z_a-z]/) && str != "";
+    return str.search(/[A-Z][a-z]+/)==0&& str.search(/[^A-Z_a-z]/)==-1;
+	
 }
 
 function validEmail(str) {

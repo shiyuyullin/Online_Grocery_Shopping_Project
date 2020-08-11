@@ -30,43 +30,108 @@
     <div class="row">
         <h1 class="message">Sign-Up Successful</h1>
     </div>
-    <div><?php
-            $firstName = $_POST["firstName"];
-            $lastName = $_POST["lastName"];
+    <?php
+            $firstName   = $_POST["firstName"];
+            $lastName    = $_POST["lastName"];
             $companyName = $_POST["companyName"];
-            $postalCode = $_POST["postalCode"];
-            $email = $_POST["email"];
-            $title = $_POST["title"];
-            $password = $_POST["password"];
+            $postalCode  = $_POST["postalCode"];
+            $email       = $_POST["email"];
+            $title       = $_POST["title"];
+            $password    = $_POST["password"];
 
-            $userData  = array("firstName" => $firstName, "lastName" => $lastName,
-                                "companyName"=>$companyName, "postalCode"=>$postalCode ,
-                                "email"=>$email, "title"=>$title, "password"=>$password);
-
-            if(!file_exists("$firstName.$lastName".".Sign.Up.xml"))
+            $found = FALSE;
+            $users = array();
+            $count = 0;
+            if(file_exists('Sign.Up.xml'))
             {
-            $xml = new XMLWriter();
-            //$xml->setIndent(TRUE);
-            $xml->openUri("$firstName.$lastName".".Sign.Up.xml");
-            $xml->startDocument('1.0', 'utf-8');
-            $xml->startElement("Info");
-            $xml->startElement("User");
-            foreach($userData as $k => $v)
-            {
-                //$xml->startElement($k);
-                $xml->writeElement($k, $v);  
-               // $xml->endElement();
+            $XMLReader = new XMLReader();
+            $XMLReader->open('Sign.Up.xml');
+            while ($XMLReader->read()) {
+                if ($XMLReader->name == "firstName") {
+                    $XMLReader->read();
+                    if ($XMLReader->hasValue) {
+                        $users[$count]["firstName"] = $XMLReader->value;
+                    }
+                }
+                if ($XMLReader->name == "lastName") {
+                    $XMLReader->read();
+                    if ($XMLReader->hasValue) {
+                        $users[$count]["lastName"] = $XMLReader->value;
+                    }
+                }
+
+                if ($XMLReader->name == "companyName") {
+                    $XMLReader->read();
+                    if ($XMLReader->hasValue) {
+                        $users[$count]["companyName"] = $XMLReader->value;
+                    }
+                }
+                if ($XMLReader->name == "postalCode") {
+                    $XMLReader->read();
+                    if ($XMLReader->hasValue) {
+                        $users[$count]["postalCode"] = $XMLReader->value;
+                    }
+                }
+                if ($XMLReader->name == "email") {
+                    $XMLReader->read();
+                    if ($XMLReader->hasValue) {
+                        $users[$count]["email"] = $XMLReader->value;
+                        if ($XMLReader->value == $email) {
+                            $found = TRUE;
+                        }
+                    }
+                }
+                if ($XMLReader->name == "title") {
+                    $XMLReader->read();
+                    if ($XMLReader->hasValue) {
+                        $users[$count]["title"] = $XMLReader->value;
+                    }
+                }
+                if ($XMLReader->name == "password") {
+                    $XMLReader->read();
+                    if ($XMLReader->hasValue) {
+                        $users[$count]["password"] = $XMLReader->value;
+                        $count++;
+                    }
+                }
             }
-            $xml->endElement();
-            $xml->endElement();
+            if (!$XMLReader->close())
+                echo "Fatal error";
             }
+            //If the email isnt found then lets add it to the xml file
+            if (!$found) {
+                $users[$count]["firstName"]   = $firstName;
+                $users[$count]["lastName"]    = $lastName;
+                $users[$count]["companyName"] = $companyName;
+                $users[$count]["postalCode"]  = $postalCode;
+                $users[$count]["email"]       = $email;
+                $users[$count]["title"]       = $title;
+                $users[$count]["password"]    = $password;
 
+                $xml = new XMLWriter();
+                //$xml->setIndent(TRUE);
+                $xml->openUri("Sign.Up.xml");
+                $xml->startDocument('1.0', 'utf-8');
+                $xml->startElement("Info");
 
+                foreach ($users as $uk => $uv) {
+                    $xml->startElement("User");
+                    foreach ($uv as $k => $v) {
+                        $xml->writeElement($k, $v);
+                    }
+                    $xml->endElement();
+                }
 
-    ?></div>
-     <h3 style="color:black">Thank you for signing up, your account has been registered.
-            <p style="margin: 25px;"></p>
-        </h3>
+                $xml->endElement();
+                echo "Email successfully registered.";
+            }
+            else
+                echo "Email already in use, please try again.";
+
+        ?>
+    <h3 style="color:black">Thank you for signing up.
+        <p style="margin: 25px;"></p>
+    </h3>
     <p class="margin"></p>
 
     <div class="footer">

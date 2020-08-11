@@ -30,7 +30,7 @@
     <div class="row">
         <h1 class="message">Sign-Up Successful</h1>
     </div>
-    <?php
+    <div><?php
             $firstName = $_POST["firstName"];
             $lastName = $_POST["lastName"];
             $companyName = $_POST["companyName"];
@@ -43,22 +43,28 @@
                                 "companyName"=>$companyName, "postalCode"=>$postalCode ,
                                 "email"=>$email, "title"=>$title, "password"=>$password);
 
-
+            if(!file_exists("$firstName.$lastName".".Sign.Up.xml"))
+            {
             $xml = new XMLWriter();
+            //$xml->setIndent(TRUE);
             $xml->openUri("$firstName.$lastName".".Sign.Up.xml");
             $xml->startDocument('1.0', 'utf-8');
+            $xml->startElement("Info");
             $xml->startElement("User");
             foreach($userData as $k => $v)
             {
-                $xml->startElement("Data");
-                $xml->writeAttribute($k, $v);  
-                $xml->endElement();
+                //$xml->startElement($k);
+                $xml->writeElement($k, $v);  
+               // $xml->endElement();
             }
             $xml->endElement();
+            $xml->endElement();
+            }
 
 
-    ?>
-     <h3 style="color:black">Thanks for signing up, your account has been registered.
+
+    ?></div>
+     <h3 style="color:black">Thank you for signing up, your account has been registered.
             <p style="margin: 25px;"></p>
         </h3>
     <p class="margin"></p>

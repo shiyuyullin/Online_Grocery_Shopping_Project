@@ -55,7 +55,6 @@ function validate() {
 
     if (validName(lastName.value) && validName(firstName.value) && validEmail(email.value) && confirmEmail.value == email.value && validPassword(password.value) && confirmPassword.value == password.value && check.checked) {
         document.getElementById("mainForm").submit();
-        document.write("Form submitted");
     }
 }
 

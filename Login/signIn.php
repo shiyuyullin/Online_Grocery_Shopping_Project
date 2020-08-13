@@ -109,7 +109,10 @@ function SubmitLogIn()
                 
                             if($users->password==$getpassword)
                             {
-                            header('Location:../orderList/orderList.html');
+                                if($users->admin=="yes")
+                                header('Location:../orderList/orderList.html');
+                                if(($users->admin=="no")
+                                   header('Location:../Home/Home.html');
                             alert("You have logged in");
                             $ChkEmailVal=1;   
                           

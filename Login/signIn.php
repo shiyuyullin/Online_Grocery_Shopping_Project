@@ -99,7 +99,7 @@ function SubmitLogIn()
 
 
 
-            $Loadxml=simplexml_load_file("Sign.Up.xml");
+            $Loadxml=simplexml_load_file("../SignUp/Sign.Up.xml");
             $ChkEmailVal=0;
             foreach($Loadxml->children() as $users)
             {
@@ -109,7 +109,7 @@ function SubmitLogIn()
                 
                             if($users->password==$getpassword)
                             {
-                            header('Location:Home.html');
+                            header('Location:../product_list/P8_product1.html');
                             alert("You have logged in");
                             $ChkEmailVal=1;   
                           
@@ -185,7 +185,7 @@ function ResetPassword()
         $ChkConEmail=0;
         if(isset($_GET["BtnSubRest"]))
         {
-            $loadXml=simplexml_load_file("Sign.Up.xml");
+            $loadXml=simplexml_load_file("../SignUp/Sign.Up.xml");
 
             $vEmail=$_GET['VEmail'];
             $newPassword=$_GET['CNewPass'];

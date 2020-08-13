@@ -87,6 +87,12 @@
                         $users[$count]["title"] = $XMLReader->value;
                     }
                 }
+                if ($XMLReader->name == "admin") {
+                    $XMLReader->read();
+                    if ($XMLReader->hasValue) {
+                        $users[$count]["admin"] = $XMLReader->value;
+                    }
+                }
                 if ($XMLReader->name == "password") {
                     $XMLReader->read();
                     if ($XMLReader->hasValue) {
@@ -106,6 +112,7 @@
                 $users[$count]["postalCode"]  = $postalCode;
                 $users[$count]["email"]       = $email;
                 $users[$count]["title"]       = $title;
+                $users[$count]["admin"]       = "no";
                 $users[$count]["password"]    = $password;
 
                 $xml = new XMLWriter();

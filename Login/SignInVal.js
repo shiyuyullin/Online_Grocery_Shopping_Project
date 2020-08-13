@@ -88,7 +88,7 @@ function ValidateForgetEmail()
                 {
                  if( newPass.length<8)
                  {
-                    alert("password and least 8 characters");
+                    alert("password should be at least 8 characters");
                     return false
                  }
                  else
@@ -135,9 +135,6 @@ function CheckeValidatResubmitInfo()
         
 
     }
-    else
-    {
-        alert("Congratulation your password has been resetted!");
-    }
+
 
 }

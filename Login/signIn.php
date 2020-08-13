@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
    
-    <link rel="stylesheet" type="text/css" href="HomeAndSignin.css">
+    <link rel="stylesheet" type="text/css" href="../css/HomeAndSignin.css">
     <title>Sign In | Yummy Food</title>
 </head>
 <body >
@@ -109,7 +109,7 @@ function SubmitLogIn()
                 
                             if($users->password==$getpassword)
                             {
-                            header('Location:../product_list/P8_product1.html');
+                            header('Location:../orderList/orderList.html');
                             alert("You have logged in");
                             $ChkEmailVal=1;   
                           

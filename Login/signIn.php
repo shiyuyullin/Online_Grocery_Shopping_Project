@@ -120,7 +120,7 @@ function SubmitLogIn()
                                  $_SESSION['username']=$getemail;
                                 header('Location:../orderList/orderList.html');
                                 }
-                                if(($users->admin=="no")
+                                if($users->admin=="no")
                                    {
                                    $_SESSION['username']=$getemail;
                                    header('Location:../Home/Home.html');

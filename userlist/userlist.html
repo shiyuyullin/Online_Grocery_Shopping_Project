@@ -31,8 +31,8 @@
 
             function loadOrderList(xml) {
                 xmlDoc = xml.responseXML;
-                var table = "<tr><th class='bigfonts'>Name</th><th class='bigfonts'>Price</th><th class='bigfonts'>Description</th>" + 
-                "<th class = 'bigfonts'>Product ID</th><th class='bigfonts'>Inventory</th><th class='bigfonts'>Action</th></tr>";
+                var table = "<tr><th class='bigfonts'>Name</th><th class='bigfonts'>Address</th><th class='bigfonts'>Postal Code</th>" + 
+                "<th class = 'bigfonts'>Product ID</th><th class='bigfonts'>Email</th><th class='bigfonts'>Inventory</th></tr>";
                 var x = xmlDoc.getElementsByTagName('info');
                 var submit;
                 var editProduct;

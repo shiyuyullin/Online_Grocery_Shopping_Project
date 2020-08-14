@@ -2,7 +2,6 @@
     
     $Name = $_POST["name"];
     $Address = $_POST["address"];
-    $City = $_POST["city"];
     $Postal = $_POST["postal"];
     $Email = $_POST["email"];
     $Id = $_POST["id"];
@@ -14,19 +13,21 @@
 
     $rootTag = $dom->getElementsByTagname("users")->item(0);
     $userElement = $dom->createElement('info');
-       $nam = $dom->createElement("name", $Name);
-       $add = $dom->createElement("address, $Address);
+      $nam = $dom->createElement("name", $Name);
+       $add = $dom->createElement("address", $Address);
        $pos = $dom->createElement("postal", $Postal);
        $ema = $dom->createElement("email", $Email);
        $id = $dom->createElement("id", $Id);
 
        $userElement->appendChild($nam);
-       $userElement->appendChild($tot);
-       $userElement->appendChild($desc);
-       $userElement->appendChild($quanti);
-       $userElement->appendChild($produ);
+       $userElement->appendChild($add);
+       $userElement->appendChild($pos);
+       $userElement->appendChild($ema);
+       $userElement->appendChild($id);
 
     $rootTag->appendChild($userElement);
     $dom -> save("users.xml");
     
-    echo "The request is submitted to the server!"
+    echo "The request is submitted to the server!";
+
+?>

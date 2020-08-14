@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Add User</title>
+        <link rel="stylesheet" type="text/css" href="../css/backstore.css">
+    </head>
+	
+    <body>
+    <div class="header">
+        <h1>Add User</h1>
+        <hr/>
+
+    </div> 
+
+  <form action="edit_user.php" method="POST">
+    <label class="fonts" for="name">Name:</label><br>
+    <input type="text" id="name" name="name"size="50"value="" required> <br><br>
+	
+	<span class="fonts" >Occupation: </span>
+	<select name="occupation">
+	<option> Admin </option>
+	<option > Staff </option>
+	<option > Client </option>
+	<option> Other	</option>
+	</select> <br><br>
+	
+    <label class="fonts" for="address">Address:</label>
+    <input type="text" id="address" name="address"size="50"value=""> <br><br>
+
+    <label class="fonts" for="city">City:</label>
+    <input type="text" id="city" name="city"size="20"value=""><br><br>
+    
+    <label class="fonts" for="postal">Postal Code:</label>
+    <input type="text" id="postal" name="postal"size="10"value=""> <br><br>
+	
+    <label class="fonts" for="email">E-mail:</label>
+    <input type="text" id="email" name="email" size="40"value="" required> <br><br>
+	
+    <label class="fonts" for="id">ID:</label>
+    <input type="text" id="id" name="id" size="10"value="" required> <br><br>
+
+        <br><br>
+        <button onclick="validate();validateEmail()" id="submitButton" class="button" type="submit">Submit</button>
+		<input type="reset" value="Reset Changes">
+    </form>
+
+    <script src="../js/userlist_validation.js"></script>
+
+    <script>
+
+        var index = getCookie("editUserIndex");
+        
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+                  loadOrderInfo(this);
+              }
+        };
+        xhttp.open("GET", "users.xml", true);
+        xhttp.send();
+      
+        function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+            }
+          }
+          return "";
+        }
+      
+        function loadOrderInfo(xml){
+            xmlDoc = xml.responseXML;
+            var x = xmlDoc.getElementsByTagName('info');
+            document.getElementById("name").value = x[index-1].getElementsByTagName("name")[0].childNodes[0].nodeValue;
+            document.getElementById("address").value = x[index-1].getElementsByTagName("address")[0].childNodes[0].nodeValue;
+            document.getElementById("postal").value = x[index-1].getElementsByTagName("postal")[0].childNodes[0].nodeValue;
+            document.getElementById("email").value = x[index-1].getElementsByTagName("email")[0].childNodes[0].nodeValue;
+            document.getElementById("id").value = x[index-1].getElementsByTagName("id")[0].childNodes[0].nodeValue;
+      
+        }
+      </script>
+</body>
+</html>

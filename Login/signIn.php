@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -110,9 +116,15 @@ function SubmitLogIn()
                             if($users->password==$getpassword)
                             {
                                 if($users->admin=="yes")
+                                {
+                                 $_SESSION['username']=$getemail;
                                 header('Location:../orderList/orderList.html');
+                                }
                                 if(($users->admin=="no")
+                                   {
+                                   $_SESSION['username']=$getemail;
                                    header('Location:../Home/Home.html');
+                                   }
                             alert("You have logged in");
                             $ChkEmailVal=1;   
                           

@@ -1,0 +1,128 @@
+<html lang="en">
+    <head>
+        <title>Edit Product</title>
+        <link rel="stylesheet" type="text/css" href="../css/backstore.css">
+        <script>
+            function validateForm() {
+              var x = document.forms["productform"]["Title"].value;
+              if (x == "") {
+                alert("Title must be filled out!");
+                document.getElementById("Title").focus();
+                return false;
+              }
+              if(!x.match(/[A-Z_a-z_0-9]/)){
+                  alert("Title should not contain any special characters!")
+                  document.getElementById("Title").focus();
+                  return false;
+              }
+              x = document.forms["productform"]["Price"].value;
+              if (x == "") {
+                alert("Price must be filled out!");
+                document.getElementById("Price").focus();
+                return false;
+              }
+              if (!x.match(/[0-9]/)) {
+                alert("Please check! The price must be a number!");
+                document.getElementById("Price").focus();
+                return false;
+              }
+              x = document.forms["productform"]["Quantity"].value;
+              if (x == "") {
+                alert("Quantity must be filled out!");
+                document.getElementById("Quantity").focus();
+                return false;
+              }
+              if (x.match(/[^0-9]/)) {
+                alert("Please check! The quantity must be a number!");
+                document.getElementById("Quantity").focus();
+                return false;
+              }
+              x = document.forms["productform"]["Product Number"].value;
+              if (x == "") {
+                alert("Total amount of money must be given!");
+                document.getElementById("Product Number").focus();
+                return false;
+              }
+              if (!x.match(/\d\d\d-\d\d\d-\d\d\d/)) {
+                alert("The format of product number is incorrect! xxx-xxx-xxx!");
+                document.getElementById("Product Number").focus();
+                return false;
+              }
+            }
+            </script>
+    </head>
+    <div class="header">
+        <h1>Edit Product</h1>
+        <hr/>
+
+    </div> 
+
+  <form action="editProduct.php" name="productform" onsubmit="return validateForm()" method="POST">
+    Title: <br><input type="text" id="Title" name="Title"size="50"value=""> <br><br>
+
+    Price (In Canadian dollars): <br><input type="text" id="Price" name="Price"size="50"value="" ><br><br>
+
+    Description: <br><input type="text" name="Description" size="50" style="height:200px;" value="" id="Description"><br><br> 
+          
+    Quantity:<br><input type="text" id="Quantity" name="Quantity" size="50"value="" ><br><br>
+
+    Product Number:<br><input type="text" id="Product Number" name="Product_Number"size="50"value="" ><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+
+  <script>
+
+    var index = getCookie("editProductIndex");
+    
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+              loadOrderInfo(this);
+          }
+    };
+    xhttp.open("GET", "products.xml", true);
+    xhttp.send();
+  
+    function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+  
+    function loadOrderInfo(xml){
+        xmlDoc = xml.responseXML;
+        var x = xmlDoc.getElementsByTagName('info');
+        document.getElementById("Title").value = x[index-1].getElementsByTagName("title")[0].childNodes[0].nodeValue;
+        document.getElementById("Price").value = x[index-1].getElementsByTagName("price")[0].childNodes[0].nodeValue;
+        document.getElementById("Description").value = x[index-1].getElementsByTagName("description")[0].childNodes[0].nodeValue;
+        document.getElementById("Quantity").value = x[index-1].getElementsByTagName("quantity")[0].childNodes[0].nodeValue;
+        document.getElementById("Product Number").value = x[index-1].getElementsByTagName("product_number")[0].childNodes[0].nodeValue;
+  
+    }
+  </script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

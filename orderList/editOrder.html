@@ -1,0 +1,108 @@
+<html>
+<head>
+<title>Edit Order</title>
+<style>
+  .header {
+    padding: 10px;
+    text-align: left;
+    color: black;
+  }
+  
+</style>
+<script>
+function validateForm() {
+  var x = document.forms["myForm"]["fname"].value;
+  if (x == "") {
+    alert("Customer name must be filled out!");
+    return false;
+  }
+  if(x.match(/[0-9]/)){
+      alert("Customer name cannot contain any numbers!")
+      return false;
+  }
+  x = document.forms["myForm"]["fnum"].value;
+  if (x == "") {
+    alert("Order number must be filled out!");
+    return false;
+  }
+  if (!x.match(/\d\d\d-\d\d\d\d\d/)) {
+    alert("Please check! Format of the order number is incorrect!");
+    return false;
+  }
+  x = document.forms["myForm"]["detail"].value;
+  if (x == "") {
+    alert("Order detail must be filled out!");
+    return false;
+  }
+  x = document.forms["myForm"]["total"].value;
+  if (x == "") {
+    alert("Total amount of money must be given!");
+    return false;
+  }
+  if (!x.match(/[0-9]/)) {
+    alert("Total amount of money has to be a number!");
+    return false;
+  }
+}
+</script>
+</head>
+<body>
+
+<div class="header">
+    <h1>Edit Order</h1>
+    <hr/>
+</div> 
+
+<form name="myForm" action="editOrder.php" onsubmit="return validateForm()" method="POST">
+  Customer Name: <br><input type="text" name="editName" size="50" value="" id="name"><br><br>
+  Order Number: <br><input type="text" name="editOrderNumber" size="50" value="" id="ordernumber"><br><br>
+  Total (in Canadian dollar):  <br><input type="text" name="editTotal" size="50" value="" id="total"><br><br> 
+  Extra information: <br><textarea id="notes" name="notes"  rows="4" cols="50"></textarea><br><br>
+
+
+  <input type="submit" value="Submit">
+</form>
+
+
+
+<script>
+
+  var index = getCookie("editIndex");
+  
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+            loadOrderInfo(this);
+        }
+  };
+  xhttp.open("GET", "orders.xml", true);
+  xhttp.send();
+
+  function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+  function loadOrderInfo(xml){
+      xmlDoc = xml.responseXML;
+      var x = xmlDoc.getElementsByTagName('info');
+      document.getElementById("name").value = x[index-1].getElementsByTagName("name")[0].childNodes[0].nodeValue;
+      document.getElementById("ordernumber").value = x[index-1].getElementsByTagName("order_number")[0].childNodes[0].nodeValue;
+      document.getElementById("total").value = x[index-1].getElementsByTagName("total")[0].childNodes[0].nodeValue;
+
+  }
+</script>
+
+</body>
+</html>

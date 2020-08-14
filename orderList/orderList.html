@@ -1,8 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
         <title>Orders</title>
-        <link rel="stylesheet" type="text/css" href="../css/backstore.css">
+        <style>
+            th.bigfonts{
+                font-size: 14pt;
+                padding-top: 30px;
+            }
+            td.big-margin {
+                text-align: center;
+                padding-top: 30px;
+            }
+            a:link, a:visited{
+                color: black;
+                background-color: transparent;
+                text-decoration: none;
+            }
+        </style>
     </head>
 
     <body>
@@ -13,80 +26,65 @@
         </div> 
           
         <a href="addOrder.html"><button type="button">add order</button></a>
-        <button type="button" style="float: right;">save</button>
 
-        <table style="width:100%" class="orderTable" id="orderList"> 
-            <tr>
-              <th class="bigfonts">Customer</th>
-              <th class="bigfonts">Order Status</th> 
-              <th class="bigfonts">Total</th>
-              <th class="bigfonts">Order Number</th>
-              <th class="bigfonts">Created Date</th>
-              <th class="bigfonts">Action</th>
-            </tr>
-            <!-- order -->
-            <tr>
-                <td class="big-margin">Shiyu Lin</td>
-                <td class="big-margin">Pending</td>
-                <td class="big-margin">$68.08</td>
-                <td class="big-margin">008-93238</td>
-                <td class="big-margin">2020-07-05</td>
-                <td class="big-margin">
-                    <button type="button" value="delete" onclick="deleteRow('orderList', this)">delete</button>
-                    <script src="../js/backstore.js"></script>
-                    <a href="Lin_Order.html"><button type="button">edit</button></a>
-                </td>
-            </tr>
-            <tr>
-                <td class="big-margin">Jack Wang</td>
-                <td class="big-margin">Complete</td>
-                <td class="big-margin">$68.08</td>
-                <td class="big-margin">008-93685</td>
-                <td class="big-margin">2020-07-05</td>
-                <td class="big-margin">
-                    <button type="button" value="delete" onclick="deleteRow('orderList', this)">delete</button>
-                    <script src="../js/backstore.js"></script>
-                    <a href="Wang_Order.html"><button type="button">edit</button></a>
-                </td>
-            </tr>
-            <tr>
-                <td class="big-margin">Alan Tom</td>
-                <td class="big-margin">Pending</td>
-                <td class="big-margin">$105.303</td>
-                <td class="big-margin">008-93686</td>
-                <td class="big-margin">2020-07-05</td>
-                <td class="big-margin">
-                    <button type="button" value="delete" onclick="deleteRow('orderList', this)">delete</button>
-                    <script src="../js/backstore.js"></script>
-                    <a href="Tom_Order.html"><button type="button">edit</button></a>
-                </td>
-            </tr>
-            <tr>
-                <td class="big-margin">Harry Jin</td>
-                <td class="big-margin">Pending</td>
-                <td class="big-margin">$115.53</td>
-                <td class="big-margin">008-93687</td>
-                <td class="big-margin">2020-07-05</td>
-                <td class="big-margin">
-                    <button type="button" value="delete" onclick="deleteRow('orderList', this)">delete</button>
-                    <script src="../js/backstore.js"></script>
-                    <a href="Jin_Order.html"><button type="button">edit</button></a>
-                </td>
-            </tr>
-            <tr>
-                <td class="big-margin">Black Jerry</td>
-                <td class="big-margin">Complete</td>
-                <td class="big-margin">$100.78</td>
-                <td class="big-margin">008-93688</td>
-                <td class="big-margin">2020-07-05</td>
-                <td class="big-margin">
-                    <button type="button" value="delete" onclick="deleteRow('orderList', this)">delete</button>
-                    <script src="../js/backstore.js"></script>
-                    <a href="Jerry_Order.html"><button type="button">edit</button></a>
-                </td>
-            </tr>
-          </table>
-       
+        <table style="width: 100%;" id = "orderlist">
+            
+        </table>
+        
+        <script>
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    loadOrderList(this);
+                }
+            };
+            xhttp.open("GET", "orders.xml", true);
+            xhttp.send();
+
+            function loadOrderList(xml) {
+                xmlDoc = xml.responseXML;
+                var table = "<tr><th class='bigfonts'>Customer</th><th class='bigfonts'>Order Status</th><th class='bigfonts'>Total</th>" + 
+                "<th class = 'bigfonts'>Order Number</th><th class='bigfonts'>Created Date</th><th class='bigfonts'>Action</th></tr>";
+                var x = xmlDoc.getElementsByTagName('info');
+                var submit;
+                var editOrder;
+                for(var i = 0; i < x.length; i++)
+                {
+                    submit = "<form method='POST' action='deleteOrder.php' onsubmit = 'deleteRow(this)'><input type='submit' value='delete'></input></form>";
+                    editOrder = "<button type='button' onclick='editorder(this)'><a href='editOrder.html'>edit</a></button>"
+                    table += "<tr><td class='big-margin'>" + x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue+
+                    "</td><td class='big-margin'>"+ x[i].getElementsByTagName("state")[0].childNodes[0].nodeValue+"</td><td class='big-margin'>"
+                    + x[i].getElementsByTagName("total")[0].childNodes[0].nodeValue +"</td><td class='big-margin'>" + 
+                    x[i].getElementsByTagName("order_number")[0].childNodes[0].nodeValue +"</td><td class='big-margin'>"+
+                    x[i].getElementsByTagName("date")[0].childNodes[0].nodeValue + "</td>"+"<td class='big-margin'>"+submit+ editOrder+"</td>"+"</tr>"; 
+                }
+
+                document.getElementById("orderlist").innerHTML = table;
+            }
+        </script>
+
+        <script>
+             function deleteRow(index){
+                var i = index.parentNode.parentNode.rowIndex;            
+                setCookie("index",i,7);
+
+            }
+
+            function setCookie(cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays*24*60*60*1000));
+                var expires = "expires="+ d.toUTCString();
+                document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            }
+
+            function editorder(index){
+                var i = index.parentNode.parentNode.rowIndex;
+                setCookie("editIndex",i,7);
+            }
+
+        </script>
+
+    
         <hr style="margin-top: 80px;">  
 
         <div class="footer">

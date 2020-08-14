@@ -19,3 +19,35 @@ function deleteRow(tableID,currentRow) {
     }
     //getValues();
 }
+
+function validateForm() {
+    var x = document.forms["addForm"]["Customer"].value;
+    if (x == "") {
+      alert("Customer name must be filled out!");
+      return false;
+    }
+    if(x.match(/[0-9]/)){
+        alert("Customer name cannot contain any numbers!")
+        return false;
+    }
+    x = document.forms["addForm"]["orderNumber"].value;
+    if (x == "") {
+      alert("Order number must be filled out!");
+      return false;
+    }
+    if (!x.match(/\d\d\d-\d\d\d\d\d/)) {
+      alert("Please check! Format of the order number is incorrect!");
+      return false;
+    }
+    x = document.forms["addForm"]["Total"].value;
+    if (x == "") {
+      alert("Total amount of money must be given!");
+      return false;
+    }
+    if (!x.match(/[0-9]/)) {
+      alert("Total amount of money has to be a number!");
+      return false;
+    }
+  }
+
+

@@ -1,64 +1,45 @@
-<!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Add Product</title>
-        <link rel="stylesheet" type="text/css" href="../css/backstore.css">
+        <title>Add Order</title>
+        <style>
+            .header {
+                padding: 10px;
+                text-align: left;
+                color: black;
+            }
+        </style>>
         <script>
             function validateForm() {
-              var x = document.forms["addForm"]["Customer"].value;
-              if (x == "") {
-                alert("Customer name must be filled out!");
-                return false;
-              }
-              if(x.match(/[0-9]/)){
-                  alert("Customer name cannot contain any numbers!")
-                  return false;
-              }
-              x = document.forms["addForm"]["orderNumber"].value;
-              if (x == "") {
-                alert("Order number must be filled out!");
-                return false;
-              }
-              if (!x.match(/\d\d\d-\d\d\d\d\d/)) {
-                alert("Please check! Format of the order number is incorrect!");
-                return false;
-              }
-              x = document.forms["addForm"]["Total"].value;
-              if (x == "") {
-                alert("Total amount of money must be given!");
-                return false;
-              }
-              if (!x.match(/[0-9]/)) {
-                alert("Total amount of money has to be a number!");
-                return false;
-              }
+                var x = document.forms["addForm"]["Customer"].value;
+                if (x == "") {
+                    alert("Customer name must be filled out!");
+                    return false;
+                }
+                if(x.match(/[0-9]/)){
+                     alert("Customer name cannot contain any numbers!")
+                        return false;
+                }
+                x = document.forms["addForm"]["orderNumber"].value;
+                if (x == "") {
+                    alert("Order number must be filled out!");
+                    return false;
+                }
+                if (!x.match(/\d\d\d-\d\d\d\d\d/)) {
+                    alert("Please check! Format of the order number is incorrect!");
+                    return false;
+                }
+                x = document.forms["addForm"]["Total"].value;
+                if (x == "") {
+                    alert("Total amount of money must be given!");
+                    return false;
+                }
+                if (!x.match(/[0-9]/)) {
+                    alert("Total amount of money has to be a number!");
+                    return false;
+                }
             }
-            window.onbeforeunload = function(){
-              localStorage.setItem("addname", document.getElementById("Customer").value);
-              localStorage.setItem("addorderNumber", document.getElementById("orderNumber").value);
-              localStorage.setItem("addtotal", document.getElementById("Total").value);
-              localStorage.setItem("adddate", document.getElementById("date").value);
-            }
-            
-            window.onload = function(){
-              var name = localStorage.getItem("addname");
-              if(name != null){
-                document.getElementById("Customer").value = localStorage.getItem("addname");
-              }
-              var name = localStorage.getItem("addorderNumber");
-              if(name != null){
-                document.getElementById("orderNumber").value = localStorage.getItem("addorderNumber");
-              }
-              var name = localStorage.getItem("addtotal");
-              if(name != null){
-                document.getElementById("Total").value = localStorage.getItem("addtotal");
-              }
-              var name = localStorage.getItem("adddate");
-              if(name != null){
-                document.getElementById("date").value = localStorage.getItem("adddate");
-              }
-            }
-            </script>
+
+        </script>
     </head>
     <div class="header">
         <h1>Add Product</h1>
@@ -66,14 +47,10 @@
 
     </div> 
 <body>
-  <form action="/action_page.php" name="addForm" onsubmit="return validateForm()">
+  <form action="AddOrder.php"  name="addForm" onsubmit="validateForm()" method="POST">
     Customer: <br><input type="text" id="Customer" name="Customer"size="50"value=""> <br><br>
     
     Total: <br><input type="text" id="Total" name="Total"size="50"value="" ><br><br>
-
-    <label for="img">Select image:</label>
-    <input type="file" id="img" name="img" accept="image/*"> 
-    <input type="submit"><br><br>
     
     Order Number: <br><input type="text" id="orderNumber" name="orderNumber" size="50"value="" ><br><br>
     
@@ -82,7 +59,7 @@
     <br><br>
     <input type="submit" value="Submit">
 
-    </form>
+   </form>
 
 
 

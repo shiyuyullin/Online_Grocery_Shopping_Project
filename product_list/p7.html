@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <title>Product List</title>
@@ -14,107 +13,64 @@
     </div>
 
     <a href="addproduct.html"><button type="button">add product</button></a>
+
     <table style="width:100%" class="orderTable" id="productList">
-        <tr>
-            <th class="bigfonts">Name</th>
-            <th class="bigfonts">Image</th>
-            <th class="bigfonts">Price</th>
-            <th class="bigfonts">Description</th>
-            <th class="bigfonts">Product ID</th>
-            <th class="bigfonts">Inventory</th>
-            <th class="bigfonts">Edit/Delete</th>
-        </tr>
-        <tr>
-            <td class="big-margin">Frozen Chicken Pot Pie, St-Hubert</td>
-            <td class="big-margin">
-                <div><img src="../image/Frozen Chicken Pot Pie, St-Hubert.jpg" alt="bread"></div>
-            </td>
-            <td class="big-margin">$7.99 ea.</td>
-            <td class="big-margin">This Chicken Pot Pie will have your mouth watering for more!</td>
-            <td class="big-margin">001-999-303</td>
-            <td class="big-margin">30 in stock</td>
-            <td class="big-margin">
-                <button type="button" value="delete" onclick="deleteRow('productList', this)">delete</button>
-                <script src="../js/backstore.js"></script>
-                <a href="P8_product1.html"><button type="button">edit</button></a>
-            </td>
-        </tr>
-        <tr>
-            <td class="big-margin">Bananas</td>
-            <td class="big-margin">
-                <div><img src="../image/banana.jpg" alt="bread"></div>
-            </td>
-            <td class="big-margin">$0.33 avg. ea.</td>
-            <td class="big-margin">Excellent source of potassium. Color: Yellow.</td>
-            <td class="big-margin">434-959-002</td>
-            <td class="big-margin">45 in stock</td>
-            <td class="big-margin">
-                <button type="button" value="delete" onclick="deleteRow('productList', this)">delete</button>
-                <script src="../js/backstore.js"></script>
-                <a href="P8_product2.html"><button type="button">edit</button></a>
-            </td>
-        </tr>
-        <tr>
-            <td class="big-margin">Boneless Chicken Thighs, value pack</td>
-            <td class="big-margin">
-                <div><img src="../image/Boneless Chicken Thighs.jpg" alt="bread"></div>
-            </td>
-            <td class="big-margin">$16.63 avg. ea.</td>
-            <td class="big-margin">Fresh meat that are nicely splited</td>
-            <td class="big-margin">001-999-666</td>
-            <td class="big-margin">17 in stock</td>
-            <td class="big-margin">
-                <button type="button" value="delete" onclick="deleteRow('productList', this)">delete</button>
-                <script src="../js/backstore.js"></script>
-                <a href="P8_product3.html"><button type="button">edit</button></a>
-            </td>
-        </tr>
-        <tr>
-            <td class="big-margin">Sliced White Bread, 1 loaf</td>
-            <td class="big-margin">
-                <div><img src="../image/sliced_white_bread.jpg" alt="bread"></div>
-            </td>
-            <td class="big-margin">$2.49 ea.</td>
-            <td class="big-margin">Plain white bread, 1 loaf and sliced.</td>
-            <td class="big-margin">006-999-888</td>
-            <td class="big-margin">29 in stock</td>
-            <td class="big-margin">
-                <button type="button" value="delete" onclick="deleteRow('productList', this)">delete</button>
-                <script src="../js/backstore.js"></script>
-                <a href="P8_product4.html"><button type="button">edit</button></a>
-            </td>
-        </tr>
-        <tr>
-            <td class="big-margin">Naan Bread, 2 pack</td>
-            <td class="big-margin">
-                <div><img src="../image/naan_bread.jpg" alt="bread"></div>
-            </td>
-            <td class="big-margin">$4.25 ea.</td>
-            <td class="big-margin">This naan bread is hand streched and baked in a authentic tandoor over.</td>
-            <td class="big-margin">005-999-888</td>
-            <td class="big-margin">33 in stock</td>
-            <td class="big-margin">
-                <button type="button" value="delete" onclick="deleteRow('productList', this)">delete</button>
-                <script src="../js/backstore.js"></script>
-                <a href="P8_product5.html"><button type="button">edit</button></a>
-            </td>
-        </tr>
-        <tr>
-            <td class="big-margin">Baguette, 1 roll </td>
-            <td class="big-margin">
-                <div><img src="../image/baguette.jpg" alt="bread"></div>
-            </td>
-            <td class="big-margin">$2.99 avg. ea.</td>
-            <td class="big-margin">Fresh baked baguette with natural ingredients.</td>
-            <td class="big-margin">002-999-888</td>
-            <td class="big-margin">21 in stock</td>
-            <td class="big-margin">
-                <button type="button" value="delete" onclick="deleteRow('productList', this)">delete</button>
-                <script src="../js/backstore.js"></script>
-                <a href="P8_product6.html"><button type="button">edit</button></a>
-            </td>
-        </tr>
+        
     </table>
+
+
+    <script>
+        var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    loadOrderList(this);
+                }
+            };
+            xhttp.open("GET", "products.xml", true);
+            xhttp.send();
+
+            function loadOrderList(xml) {
+                xmlDoc = xml.responseXML;
+                var table = "<tr><th class='bigfonts'>Name</th><th class='bigfonts'>Price</th><th class='bigfonts'>Description</th>" + 
+                "<th class = 'bigfonts'>Product ID</th><th class='bigfonts'>Inventory</th><th class='bigfonts'>Action</th></tr>";
+                var x = xmlDoc.getElementsByTagName('info');
+                var submit;
+                var editProduct;
+                for(var i = 0; i < x.length; i++)
+                {
+                    submit = "<form method='POST' action='deleteProduct.php' onsubmit = 'deleteRow(this)'><input type='submit' value='delete'></input></form>";
+                    editOrder = "<button type='button' onclick='editorder(this)'><a href='editProduct.html'>edit</a></button>"
+                    table += "<tr><td class='big-margin'>" + x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue+
+                    "</td><td class='big-margin'>"+ x[i].getElementsByTagName("price")[0].childNodes[0].nodeValue+"</td><td class='big-margin'>"
+                    + x[i].getElementsByTagName("description")[0].childNodes[0].nodeValue +"</td><td class='big-margin'>" + 
+                    x[i].getElementsByTagName("product_number")[0].childNodes[0].nodeValue +"</td><td class='big-margin'>"+
+                    x[i].getElementsByTagName("quantity")[0].childNodes[0].nodeValue + "</td>"+"<td class='big-margin'>"+submit+ editOrder+"</td>"+"</tr>"; 
+                }
+
+                document.getElementById("productList").innerHTML = table;
+            }
+    </script>
+
+<script>
+    function deleteRow(index){
+       var i = index.parentNode.parentNode.rowIndex;            
+       setCookie("deleteProductIndex",i,7);
+
+   }
+
+   function setCookie(cname, cvalue, exdays) {
+       var d = new Date();
+       d.setTime(d.getTime() + (exdays*24*60*60*1000));
+       var expires = "expires="+ d.toUTCString();
+       document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+   }
+
+   function editorder(index){
+       var i = index.parentNode.parentNode.rowIndex;
+       setCookie("editProductIndex",i,7);
+   }
+
+</script>
 
 
     <hr style="margin-top: 80px;">

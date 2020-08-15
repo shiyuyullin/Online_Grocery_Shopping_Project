@@ -5,6 +5,9 @@
 
         var span_close_multi = document.getElementsByClassName("close_multi");
 
+        var priceElements = document.getElementsByClassName("price");
+        var prices = Array();
+
         function setDataIndex() {
 
             for (i = 0; i < modal_btn_multi.length; i++)
@@ -12,6 +15,7 @@
                 modal_btn_multi[i].setAttribute('data-index', i);
                 modalparent[i].setAttribute('data-index', i);
                 span_close_multi[i].setAttribute('data-index', i);
+                prices[i] = priceElements[i].innerHTML;
             }
         }
         for (i = 0; i < modal_btn_multi.length; i++)
@@ -36,6 +40,7 @@
             if (event.target === modalparent[event.target.getAttribute('data-index')]) {
                 modalparent[event.target.getAttribute('data-index')].style.display = "none";
             }
+            alert(prices[event.target.getAttribute('data-index')]);
 
            
         }

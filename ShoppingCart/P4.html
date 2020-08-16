@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<title>Shopping Cart | Our store</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="../css/aisle_style.css">
-<link rel="stylesheet" type="text/css" href="../css/P4CSS.css">
-<script type="text/javascript" src="../js/frontsotre.js"></script>
+  <title>Shopping Cart | Our store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../css/aisle_style.css">
+  <link rel="stylesheet" type="text/css" href="../css/P4CSS.css">
+  <script type="text/javascript" src="../js/frontsotre.js"></script>
 </head>
+
 <body>
 
   <div class="header">
@@ -18,9 +20,9 @@
       </form>
     </div>
   </div>
-  
-    <div class="topnav">
-      <a href="../Home/Home.html" class="bold">HOME</a>
+
+  <div class="topnav">
+    <a href="../Home/Home.html" class="bold">HOME</a>
     <a href="#" class="bold">ALL PRODUCTS</a>
     <a href="#" class="bold">FLYER</a>
     <a href="#" class="bold">DEAL OF TODAY</a>
@@ -29,84 +31,79 @@
 
 
 
-  
+
   <h1>Shopping Cart</h1>
   <input type="button" onclick="clearData()" value="Empty Cart"></input>
   <table class="orderTable" id="productList" style="width:100%" border="border"></table>
   <script>
 
-        function clearData()
-        {
-          localStorage.clear();
-          window.location.reload();
-        }
-        function deleteItem(item)
-        {
-          var buttons = document.getElementsByClassName("deleteButtons");
-          for(var i =0;i<buttons.length;i++)
-          {
-            if(buttons[i]==item)
-            {
-              var productsArray = JSON.parse(localStorage.getItem("products"));
-              var pricesArray = JSON.parse(localStorage.getItem("prices"));
-              var x = 0;
-              var prodArr = Array();
-              var priceArr = Array();
-              for(var j = 0;j<productsArray.length;j++)
-              {
-                if(j!=i)
-                {
-                  prodArr[x] = productsArray[j];
-                  priceArr[x] = pricesArray[j];
-                  x++;
-                }
-              }
-              window.localStorage.setItem("products", JSON.stringify(prodArr));
-              window.localStorage.setItem("prices", JSON.stringify(priceArr));
+    function clearData() {
+      localStorage.clear();
+      window.location.reload();
+    }
+    function deleteItem(item) {
+      var buttons = document.getElementsByClassName("deleteButtons");
+      for (var i = 0; i < buttons.length; i++) {
+        if (buttons[i] == item) {
+          var productsArray = JSON.parse(localStorage.getItem("products"));
+          var pricesArray = JSON.parse(localStorage.getItem("prices"));
+          var x = 0;
+          var prodArr = Array();
+          var priceArr = Array();
+          for (var j = 0; j < productsArray.length; j++) {
+            if (j != i) {
+              prodArr[x] = productsArray[j];
+              priceArr[x] = pricesArray[j];
+              x++;
             }
           }
-          window.location.reload();
+          window.localStorage.setItem("products", JSON.stringify(prodArr));
+          window.localStorage.setItem("prices", JSON.stringify(priceArr));
         }
-        function loadOrderList() {
-          var productsArray = JSON.parse(localStorage.getItem("products"));//no brackets
-                var pricesArray = JSON.parse(localStorage.getItem("prices"));//no brackets
+      }
+      window.location.reload();
+    }
+    function loadOrderList() {
+      var productsArray = JSON.parse(localStorage.getItem("products"));//no brackets
+      var pricesArray = JSON.parse(localStorage.getItem("prices"));//no brackets
 
-            var table = "<tr><th class='bigfonts'>Product Name<\/th><th class='bigfonts'>Price<\/th><th class='bigfonts'>Quantity<\/th><th class='bigfonts'>Delete Item<\/th>";
+      var table = "<tr><th class='bigfonts'>Product Name<\/th><th class='bigfonts'>Price<\/th><th class='bigfonts'>Quantity<\/th><th class='bigfonts'>Delete Item<\/th>";
 
-            var submit;
-            var editProduct;
-            var total = 0;
-            for(var i = 0; i < productsArray.length; i++)
-            {
-                total+=pricesArray[i];
-                submit = "<form method='POST' action='delete_user.php' onsubmit = 'deleteRow(this)'><input type='submit' value='delete'><\/input><\/form>";
-                editOrder = "<button type='button' onclick='editorder(this)'><a href='edituser.html'>edit<\/a><\/button>"
-                table += "<tr><td class='big-margin'>" + productsArray[i]+
-                "<\/td><td class='big-margin'>"+ "$"+pricesArray[i]+"<\/td><td class='big-margin'>"
-                + 1 +"<td><input type='button' onclick='deleteItem(this)' class='deleteButtons' value = 'delete'</td></tr>"; 
-            }
-            var qst = 0.09975*total;
-            table+="<tr><td colspan='3'>QST(9.975%)</td><td>$"+qst.toFixed(2)+"</td></tr>";
-            var gst = 0.05*total;
-            table+="<tr><td colspan='3'>GST(5%)</td><td>$"+gst.toFixed(2)+"</td></tr>";
-            total +=gst+qst;
-            table+="<tr><td colspan='3'>Total</td><td>$"+total.toFixed(2)+"</td></tr>";
-            document.getElementById("productList").innerHTML = table;
-        }
-        loadOrderList();
-</script> 
-  
+      var submit;
+      var editProduct;
+      var total = 0;
+      for (var i = 0; i < productsArray.length; i++) {
+        total += pricesArray[i];
+        submit = "<form method='POST' action='delete_user.php' onsubmit = 'deleteRow(this)'><input type='submit' value='delete'><\/input><\/form>";
+        editOrder = "<button type='button' onclick='editorder(this)'><a href='edituser.html'>edit<\/a><\/button>"
+        table += "<tr><td class='big-margin'>" + productsArray[i] +
+          "<\/td><td class='big-margin'>" + "$" + pricesArray[i] + "<\/td><td class='big-margin'>"
+          + 1 + "<td><input type='button' onclick='deleteItem(this)' class='deleteButtons' value = 'delete'</td></tr>";
+      }
+      var qst = 0.09975 * total;
+      table += "<tr><td colspan='3'>QST(9.975%)</td><td>$" + qst.toFixed(2) + "</td></tr>";
+      var gst = 0.05 * total;
+      table += "<tr><td colspan='3'>GST(5%)</td><td>$" + gst.toFixed(2) + "</td></tr>";
+      total += gst + qst;
+      table += "<tr><td colspan='3'>Total</td><td>$" + total.toFixed(2) + "</td></tr>";
+      document.getElementById("productList").innerHTML = table;
+    }
+    loadOrderList();
+  </script>
+
 
 
   <div class="footer">
     <div class="generalinf">
-      <p><a href="#">FIND</a> &emsp;&emsp;&emsp;&emsp;&emsp;  <a href="#">FIND LOCATION</a> &emsp;&emsp;&emsp;&emsp;&emsp; <a href="#">HELP CENTER</a> </p>
+      <p><a href="#">FIND</a> &emsp;&emsp;&emsp;&emsp;&emsp; <a href="#">FIND LOCATION</a>
+        &emsp;&emsp;&emsp;&emsp;&emsp; <a href="#">HELP CENTER</a> </p>
 
     </div>
     <div class="fontF">
-      <p>Product &emsp;&emsp;&emsp;&emsp;&emsp; Support & Resources  &emsp;&emsp;&emsp;&emsp;&emsp; Partnerships</p>
+      <p>Product &emsp;&emsp;&emsp;&emsp;&emsp; Support & Resources &emsp;&emsp;&emsp;&emsp;&emsp; Partnerships</p>
     </div>
   </div>
-  
-  </body>
-  </html>
+
+</body>
+
+</html>

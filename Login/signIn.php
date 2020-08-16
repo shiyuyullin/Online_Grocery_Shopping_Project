@@ -23,7 +23,7 @@ session_start();
       </div>
       
       <div class="topnav">
-        <a href="../Home/Home.html" class="bold">Home</a>
+        <a href="#" class="bold">Home</a>
         <a href="#" class="bold">FLYER</a>
         <a href="#" class="bold">DEAL OF TODAY</a>
         

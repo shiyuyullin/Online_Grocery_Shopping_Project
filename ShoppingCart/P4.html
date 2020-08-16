@@ -33,10 +33,23 @@
 
 
   <h1>Shopping Cart</h1>
-  <input type="button" onclick="clearData()" value="Empty Cart"></input>
-  <table class="orderTable" id="productList" style="width:100%" border="border"></table>
-  <script>
+ 
+    <table cellspacing="0" class="shopping-cart">
+      <thead>
+        <tr class="headings">
+          <th class="price">Item</td>
+          <th class="price">Image</td>
+          <th class="price">Price</td>
+          <th class="price">Quantity</td>
+          <th class="price">Total</td>
+        </tr>
+      </thead>
+      <tbody>
+      
+        <tr>
+          <td class="Item"><label>Boneless Trimmed Chicken Breasts</label></td>
 
+<<<<<<< HEAD
     function clearData() {
       localStorage.clear();
       window.location.reload();
@@ -91,6 +104,53 @@
     loadOrderList();
   </script>
 
+=======
+          <td class="Image">
+          <a href="#"><img src="../image/Boneless Trimmed Chicken Breasts.jpg" alt="Boneless Chicken Breasts" style="width:90%"></a>
+               
+            
+          <td class="Price">$<span id="price">17.63</span>avg. ea.</td>
+          
+           
+          </td>
+
+          <td class="quantity"><form action="/action_page.php">
+            <label for="cars">Quantity:</label>
+            <input id="num" type="text" oninput="calcTotal()" value=""/>
+          </td>
+
+          <td class="Price">$<span id="total1"></span></td>
+
+        </tr>
+     
+      
+        <tr>
+          <td class="quantity-span" colspan="4">Subtotal</td>
+          <td class="Price">$<span id="subtotal"></span></td>
+        </tr>
+        
+          <tr>
+            <td class="quantity-span" colspan="4">QST(9.975%)</td>
+            <td class="Price">$<span id="QST"></span></td>
+          </tr>
+
+          <tr>
+            <td class="quantity-span" colspan="4">GST(5%)</td>
+            <td class="Price">$<span id="GST"></span></td>
+          </tr>
+
+
+
+        <tr class="totals">
+          <td colspan="2"><input type="submit" name="submit" value="Checkout" /></td>
+          <td class="quantity-span" colspan="2">Total</td>
+          <td class="Price">$<span id="total2"></span></td>
+        </tr> 
+      </tbody>
+    </table>
+  
+  
+>>>>>>> parent of f9f75af... Merge branch 'master' of https://github.com/shiyuyullin/soen287Project
 
 
   <div class="footer">

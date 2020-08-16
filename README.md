@@ -5,4 +5,6 @@ That are: second row, first one and second one. Third row, first one and third o
 2. The index page that you will see in the website is only there to provide two seperate links, one links to front store pages,
 and the other links to back store pages.
 
-3. website URL: http://yummyfoods.tk.s3-website.us-east-2.amazonaws.com
+3. website URL: yummyfoods.rf.gd
+
+4. In case the content on the user&product&order lists does not update after add/edit/delete, press ctrl+F5!

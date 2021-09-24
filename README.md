@@ -1,4 +1,4 @@
-# soen287Project
+# YUMMY FOOD
 
 During the global pandemic, there is a sharp increase on demand of online grocery shopping, many major grocery retailers such as 
 Metro, Walmart, shifted there business from in-person to online. Thus, there is also a big increase in demand to develop user-friendly,
